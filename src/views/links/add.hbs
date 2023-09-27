@@ -1,7 +1,97 @@
+
 		<!-- Main Panel -->
 		<div class="main-panel">
 			<div class="content">
 				<div class="page-inner">
+					<div class="container p-4">
+						<div class="card max-auto">
+							<div class="card-body">
+								   <div class="modal-header bg-primary text-white">
+										<h5 class="modal-title" id="exampleModalLabel">DATOS VEHICULOS</h5>
+									</div>
+									<br>
+									<form action="/links/add" method="POST">
+										<div class="mb-3">
+											<input type="number" class="form-control" id="clvEmpleado" name="clvEmpleado" placeholder="Clave Empleado" autofocus required>
+										</div>
+										<div class="mb-3">
+											<select id="sucursal" class="form-control" name="sucursal" placeholder="Sucurdal" type="text-center"  required>
+												<option value="Acapulco">ACAPULCO</option>
+												<option value="Escobedo">ESCOBEDO</option>
+												<option value="Santa Catarina">SANTA CATARINA</option>
+												<option value="Solidaridad">SOLIDARIDAD</option>
+											</select>
+										</div>
+										<div class="mb-3">
+											<input type="text" class="form-control" id="nomEmpleado" name="nomEmpleado" placeholder="Nombre Empleado" required>
+										</div>
+										<div class="mb-3">
+											<input type="text" class="form-control" id="apPaterno" name="apPaterno" placeholder="Apellido Paterno"  required> 
+										</div>
+										<div class="mb-3">
+											<input type="text" class="form-control" id="apMaterno" name="apMaterno" placeholder="Apellido Materno"  required>
+										</div>
+										<div class="mb-3">
+											<input type="number" class="form-control" id="yearModelo" name="yearModelo" placeholder="Año Modelo" required>
+										</div>
+										<div class="mb-3">
+											<input type="text" class="form-control" id="modelo" name="modelo" placeholder="Modelo" required>
+										</div>
+										<div class="mb-3">
+											<input type="text" class="form-control" id="colorMoto" name="colorMoto" placeholder="Color moto" required>
+										</div>
+										<div class="mb-3">
+											<input type="text" class="form-control" id="numSerie" name="numSerie" placeholder="Numero de serie" required>
+										</div>
+										<div class="mb-3">
+											<input type="text" class="form-control" id="numPlacas" name="numPlacas" placeholder="Numero de placas" required>
+										</div>											
+																
+										<div class="mb-3">
+											<input type="text" class="form-control" id="numPoliza" name="numPoliza" placeholder="Numero de poliza" required>
+										</div>
+										<div class="mb-3">
+											<input type="text" class="form-control" id="numInciso" name="numInciso" placeholder="Numero de inciso" required>
+										</div>
+										<div class="mb-3">
+											<input type="text" class="form-control" id="polizaVencimiento" name="polizaVencimiento" placeholder="Vencimiento de poliza" required> 
+										</div>											
+										<div class="mb-3">
+											<input type="text" class="form-control" id="numFactura" name="numFactura" placeholder="Numero de factura" required>
+										</div>
+										<div class="mb-3">
+											<input type="text" class="form-control" id="fechaFactura" name="fechaFactura" placeholder="Fecha de factura" required>
+										</div>																						
+																
+										<div class="mb-3">
+											<input type="text" class="form-control" id="subtotalFactura" name="subtotalFactura" placeholder="Sub total factura" required>
+										</div>
+										<div class="mb-3">
+											<input type="text" class="form-control" id="ivaFactura" name="ivaFactura" placeholder="Iva factura" required>
+										</div>
+										<div class="mb-3">
+											<input type="text" class="form-control" id="totalFactura" name="totalFactura" placeholder="Total factura" required>
+										</div>
+										<div class="mb-3">
+											<input type="text" class="form-control" id="aseguradora" name="aseguradora" placeholder="Aseguradora" required>
+										</div>
+										<div class="mb-3">
+											<input type="text" class="form-control" id="estadoPoliza" name="estadoPoliza" placeholder="Estado de poliza" required>
+										</div>
+										<div class="mb-3">
+											<textarea name="observaciones" class="form-control" id="observaciones" rows="2" placeholder="Observaciones"></textarea>
+										</div>
+										<div class="modal-footer">
+											<button type="submit" class="btn btn-success">Guardar</button>
+											<button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
+										</div>				
+									</form>
+									<!-- Final Form -->
+							</div>
+						</div>
+					</div>			
+					
+					
 					<div class="page-header">
 						<h4 class="page-title">Parque Vehicuar</h4>
 						<ul class="breadcrumbs">
@@ -23,126 +113,9 @@
 							<div class="card-header">
 								<div class="d-flex align-items-center">
 									<h4 class="card-title">Relacion de vehiculos y polizas de seguro monterrey</h4>
-									<button id="btnCrear" class="btn btn-primary btn-round ml-auto" data-toggle="modal"><i class="fa-solid fa-user-pen"></i> Agregar</button>
 								</div>
 							</div>
-							<div class="card-body">
-								<!-- Modal -->
-								<div id="modalArticulo" class="modal fade" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-									<div class="modal-dialog" >
-										<div class="modal-content">
-											<div class="modal-header bg-primary text-white">
-												<h5 class="modal-title" id="exampleModalLabel">DATOS VEHICULOS</h5>
-												<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-													<span aria-hidden="true">&times;</span>
-												  </button>
-											</div>
-											<div class="modal-body">
-												<form >
-													<div class="mb-3">
-														<label for="recipient-name" class="col-form-label">ClvEmpleado:</label>
-														<input type="number" class="form-control" id="clvEmpleado"  required>
-													</div>
-													<div class="mb-3">
-														<label for="recipient-name" class="col-form-label">Sucursal:</label>
-														<select id="sucursal" class="form-control" type="text-center"  required>
-															<option value="Acapulco">ACAPULCO</option>
-															<option value="Escobedo">ESCOBEDO</option>
-															<option value="Santa Catarina">SANTA CATARINA</option>
-															<option value="Solidaridad">SOLIDARIDAD</option>
-														  </select>
-													</div>
-													<div class="mb-3">
-														<label for="recipient-name" class="col-form-label">Nombre Empleado:</label>
-														<input type="text" class="form-control" id="nomEmpleado"  required>
-													</div>
-													<div class="mb-3">
-														<label for="recipient-name" class="col-form-label">Apellido P:</label>
-														<input type="text" class="form-control" id="apPaterno"  required> 
-													</div>
-													<div class="mb-3">
-														<label for="recipient-name" class="col-form-label">Apellido M:</label>
-														<input type="text" class="form-control" id="apMaterno"  required>
-													</div>
-												
-													<div class="mb-3">
-														<label for="recipient-name" class="col-form-label">Año Modelo:</label>
-														<input type="number" class="form-control" id="yearModelo"  required>
-													</div>
-													<div class="mb-3">
-														<label for="recipient-name" class="col-form-label">Modelo:</label>
-														<input type="text" class="form-control" id="modelo"  required>
-													</div>
-													<div class="mb-3">
-														<label for="recipient-name" class="col-form-label">Color modelo:</label>
-														<input type="text" class="form-control" id="colorMoto"  required>
-													</div>
-													<div class="mb-3">
-														<label for="recipient-name" class="col-form-label">Numero de serie:</label>
-														<input type="text" class="form-control" id="numSerie"  required>
-													</div>
-													<div class="mb-3">
-														<label for="recipient-name" class="col-form-label">Numero de placas:</label>
-														<input type="text" class="form-control" id="numPlacas"  required>
-													</div>											
-												  
-													<div class="mb-3">
-														<label for="recipient-name" class="col-form-label">Numero de poliza:</label>
-														<input type="text" class="form-control" id="numPoliza"  required>
-													</div>
-													<div class="mb-3">
-														<label for="recipient-name" class="col-form-label">Numero de inciso :</label>
-														<input type="text" class="form-control" id="numInciso"  required>
-													</div>
-													<div class="mb-3">
-														<label for="recipient-name" class="col-form-label">Vencimiento de poliza:</label>
-														<input type="text" class="form-control" id="polizaVencimiento" required> 
-													</div>											
-													<div class="mb-3">
-														<label for="recipient-name" class="col-form-label">Numero de factura:</label>
-														<input type="text" class="form-control" id="numFactura"  required>
-													</div>
-													<div class="mb-3">
-														<label for="recipient-name" class="col-form-label">Fecha de factura:</label>
-														<input type="text" class="form-control" id="fechaFactura" required>
-													</div>																						
-												
-													<div class="mb-3">
-														<label for="recipient-name" class="col-form-label">Sub total factura:</label>
-														<input type="text" class="form-control" id="subtotalFactura"  required>
-													</div>
-													<div class="mb-3">
-														<label for="recipient-name" class="col-form-label">Iva factura:</label>
-														<input type="text" class="form-control" id="ivaFactura"  required>
-													</div>
-													<div class="mb-3">
-														<label for="recipient-name" class="col-form-label">Total factura:</label>
-														<input type="text" class="form-control" id="totalFactura"  required>
-													</div>
-													<div class="mb-3">
-														<label for="recipient-name" class="col-form-label">Aseguradora:</label>
-														<input type="text" class="form-control" id="aseguradora"  required>
-													</div>
-													<div class="mb-3">
-														<label for="recipient-name" class="col-form-label">Estado de poliza:</label>
-														<input type="text" class="form-control" id="estadoPoliza"  required>
-													</div>
-													<div class="mb-3">
-														<label for="recipient-name" class="col-form-label">Observaciones:</label>
-														<input type="text" class="form-control" id="observaciones" required>
-													</div>
-													<div class="modal-footer">
-														<button type="submit" class="btn btn-primary">Guardar</button>
-														<button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
-													</div>				
-												</form>
-											</div>
-										</div>
-									</div>
-								</div>
-								<!-- Final modal -->
-
-							  	
+							<div class="card-body">						  	
 								<div class="table-responsive">
 										<!-- Tabla llamando un API -->
 									<table id="tablaArticulos" class="table mt-2 table-bordered table-striped">
@@ -201,4 +174,4 @@
 			</footer>
 		</div>
 		<!-- End Main Panel -->
-    </div>
+    
