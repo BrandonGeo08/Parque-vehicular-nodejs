@@ -1,0 +1,204 @@
+		<!-- Main Panel -->
+		<div class="main-panel">
+			<div class="content">
+				<div class="page-inner">
+					<div class="page-header">
+						<h4 class="page-title">Parque Vehicuar</h4>
+						<ul class="breadcrumbs">
+							<li class="nav-home">
+								<a href="#">
+									<i class="flaticon-home"></i>
+								</a>
+							</li>
+							<li class="separator">
+								<i class="flaticon-right-arrow"></i>
+							</li>
+							<li class="nav-item">
+								<a href="#">Tablas</a>
+							</li>
+						</ul>
+					</div>
+					<div class="col-md-12">
+						<div class="card">
+							<div class="card-header">
+								<div class="d-flex align-items-center">
+									<h4 class="card-title">Relacion de vehiculos y polizas de seguro monterrey</h4>
+									<button id="btnCrear" class="btn btn-primary btn-round ml-auto" data-toggle="modal"><i class="fa-solid fa-user-pen"></i> Agregar</button>
+								</div>
+							</div>
+							<div class="card-body">
+								<!-- Modal -->
+								<div id="modalArticulo" class="modal fade" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+									<div class="modal-dialog" >
+										<div class="modal-content">
+											<div class="modal-header bg-primary text-white">
+												<h5 class="modal-title" id="exampleModalLabel">DATOS VEHICULOS</h5>
+												<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+													<span aria-hidden="true">&times;</span>
+												  </button>
+											</div>
+											<div class="modal-body">
+												<form >
+													<div class="mb-3">
+														<label for="recipient-name" class="col-form-label">ClvEmpleado:</label>
+														<input type="number" class="form-control" id="clvEmpleado"  required>
+													</div>
+													<div class="mb-3">
+														<label for="recipient-name" class="col-form-label">Sucursal:</label>
+														<select id="sucursal" class="form-control" type="text-center"  required>
+															<option value="Acapulco">ACAPULCO</option>
+															<option value="Escobedo">ESCOBEDO</option>
+															<option value="Santa Catarina">SANTA CATARINA</option>
+															<option value="Solidaridad">SOLIDARIDAD</option>
+														  </select>
+													</div>
+													<div class="mb-3">
+														<label for="recipient-name" class="col-form-label">Nombre Empleado:</label>
+														<input type="text" class="form-control" id="nomEmpleado"  required>
+													</div>
+													<div class="mb-3">
+														<label for="recipient-name" class="col-form-label">Apellido P:</label>
+														<input type="text" class="form-control" id="apPaterno"  required> 
+													</div>
+													<div class="mb-3">
+														<label for="recipient-name" class="col-form-label">Apellido M:</label>
+														<input type="text" class="form-control" id="apMaterno"  required>
+													</div>
+												
+													<div class="mb-3">
+														<label for="recipient-name" class="col-form-label">Año Modelo:</label>
+														<input type="number" class="form-control" id="yearModelo"  required>
+													</div>
+													<div class="mb-3">
+														<label for="recipient-name" class="col-form-label">Modelo:</label>
+														<input type="text" class="form-control" id="modelo"  required>
+													</div>
+													<div class="mb-3">
+														<label for="recipient-name" class="col-form-label">Color modelo:</label>
+														<input type="text" class="form-control" id="colorMoto"  required>
+													</div>
+													<div class="mb-3">
+														<label for="recipient-name" class="col-form-label">Numero de serie:</label>
+														<input type="text" class="form-control" id="numSerie"  required>
+													</div>
+													<div class="mb-3">
+														<label for="recipient-name" class="col-form-label">Numero de placas:</label>
+														<input type="text" class="form-control" id="numPlacas"  required>
+													</div>											
+												  
+													<div class="mb-3">
+														<label for="recipient-name" class="col-form-label">Numero de poliza:</label>
+														<input type="text" class="form-control" id="numPoliza"  required>
+													</div>
+													<div class="mb-3">
+														<label for="recipient-name" class="col-form-label">Numero de inciso :</label>
+														<input type="text" class="form-control" id="numInciso"  required>
+													</div>
+													<div class="mb-3">
+														<label for="recipient-name" class="col-form-label">Vencimiento de poliza:</label>
+														<input type="text" class="form-control" id="polizaVencimiento" required> 
+													</div>											
+													<div class="mb-3">
+														<label for="recipient-name" class="col-form-label">Numero de factura:</label>
+														<input type="text" class="form-control" id="numFactura"  required>
+													</div>
+													<div class="mb-3">
+														<label for="recipient-name" class="col-form-label">Fecha de factura:</label>
+														<input type="text" class="form-control" id="fechaFactura" required>
+													</div>																						
+												
+													<div class="mb-3">
+														<label for="recipient-name" class="col-form-label">Sub total factura:</label>
+														<input type="text" class="form-control" id="subtotalFactura"  required>
+													</div>
+													<div class="mb-3">
+														<label for="recipient-name" class="col-form-label">Iva factura:</label>
+														<input type="text" class="form-control" id="ivaFactura"  required>
+													</div>
+													<div class="mb-3">
+														<label for="recipient-name" class="col-form-label">Total factura:</label>
+														<input type="text" class="form-control" id="totalFactura"  required>
+													</div>
+													<div class="mb-3">
+														<label for="recipient-name" class="col-form-label">Aseguradora:</label>
+														<input type="text" class="form-control" id="aseguradora"  required>
+													</div>
+													<div class="mb-3">
+														<label for="recipient-name" class="col-form-label">Estado de poliza:</label>
+														<input type="text" class="form-control" id="estadoPoliza"  required>
+													</div>
+													<div class="mb-3">
+														<label for="recipient-name" class="col-form-label">Observaciones:</label>
+														<input type="text" class="form-control" id="observaciones" required>
+													</div>
+													<div class="modal-footer">
+														<button type="submit" class="btn btn-primary">Guardar</button>
+														<button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
+													</div>				
+												</form>
+											</div>
+										</div>
+									</div>
+								</div>
+								<!-- Final modal -->
+
+							  	
+								<div class="table-responsive">
+										<!-- Tabla llamando un API -->
+									<table id="tablaArticulos" class="table mt-2 table-bordered table-striped">
+										<thead style="background-color: #09D368; color: #fff;">
+											<tr class="text-center">
+												<th class="centered">ID</th>
+												<th class="centered">Clave Empleado</th>
+												<th class="centered">Sucursal</th>
+												<th class="centered">Nombre Empleado</th>
+												<th class="centered">Apellido paterno</th>
+												<th class="centered">Apellido materno</th>
+												<th class="centered">Año del modelo</th>
+												<th class="centered">Modelo</th>
+												<th class="centered">Color moto</th>
+												<th class="centered">Numero de serie</th>
+												<th class="centered">Numero de placas</th>
+												<th class="centered">Numero de poliza</th>
+												<th class="centered">Numero Inciso</th>
+												<th class="centered">Vencimiento de poliza</th>
+												<th class="centered">Numero de factura</th>
+												<th class="centered">Fecha de factura</th>
+												<th class="centered">Sub total factura</th>
+												<th class="centered">Iva factura</th>
+												<th class="centered">Total de la factura</th>
+												<th class="centered">Aseguradora</th>
+												<th class="centered">Estado de poliza</th>
+												<th class="centered">Observaciones</th>
+												<th class="centered">Editar</th>
+												<th class="centered">Eliminar</th>
+											</tr>
+										</thead>
+										<tbody id="tbody_mostrar"></tbody>
+									</table>
+										<!-- Termina tabal llamando una API -->
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<footer class="footer">
+				<div class="container-fluid">
+					<nav class="pull-left">
+						<ul class="nav">
+							<li class="nav-item">
+								<a class="nav-link" href="#">
+									Todos los derechos reservados 
+								</a>
+							</li>
+						</ul>
+					</nav>
+					<div class="copyright ml-auto">
+						2023, Mi <a href="#">Abuelito</a> Te Presta
+					</div>				
+				</div>
+			</footer>
+		</div>
+		<!-- End Main Panel -->
+    </div>

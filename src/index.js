@@ -13,8 +13,8 @@ const app = express();
  */
 app.set('port', process.env.PORT || 4000);
 app.set('views', path.join(__dirname, 'views'));
-app.set('.hbs', exphbs.engine({
-    defaultLayout: 'main',
+app.engine('.hbs', exphbs.engine({
+    defaultLayout: 'main.hbs',
     layoutsDir: path.join(app.get('views'), 'layouts'),
     partialsDir: path.join(app.get('views'), 'partials'),
     extname: '.hbs',
@@ -42,7 +42,8 @@ app.use((req, res, next)=>{
  */
 app.use(require('./routes/index'));
 app.use(require('./routes/authentication'))
-app.use(require('./routes/authentication'))
+app.use('/links', require('./routes/links'));
+
 
 
 /**
