@@ -22,7 +22,7 @@ app.set('.hbs', exphbs.engine({
   }))
 app.set('view engine', '.hbs');
 
-/**
+/*, 
  * Middlewares
  */
 app.use(morgan('dev'));

@@ -5,4 +5,6 @@ router.get('/', (req, res)=>{
     res.send('Hola')
 })
 
+const pool = require('../database')
+
 module.exports = router
