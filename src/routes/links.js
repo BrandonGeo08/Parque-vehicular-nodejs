@@ -4,10 +4,6 @@ const router = express.Router();
 const pool = require('../database')
 
 
-router.get('/add', (req, res) =>{
-    res.render('links/add')
-});
-
 router.post('/add', async (req, res) =>{
     const {clvEmpleado,sucursal,nomEmpleado,apPaterno,apMaterno,yearModelo,
         modelo,colorMoto,numSerie,numPlacas,numPoliza,numInciso,polizaVencimiento,
@@ -23,5 +19,10 @@ router.post('/add', async (req, res) =>{
     await pool.query('INSERT INTO relacionvehiculos set ?', [newData])
     res.render('links/add')
 });
+
+router.get('/add', async (req, res) => {
+    const links = await pool.query('SELECT * FROM relacionvehiculos');
+    res.render('links/add', {links: links});
+ });
 
 module.exports = router
