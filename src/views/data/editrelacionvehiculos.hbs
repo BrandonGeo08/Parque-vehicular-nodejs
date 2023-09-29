@@ -1,0 +1,218 @@
+<!-- Main Panel -->
+<div class="main-panel">
+	<div class="content">
+		<div class="page-inner">
+			<div class="page-header">
+				<h4 class="page-title">Parque Vehicuar, pestaña</h4>
+                <h1>Pestaña</h1>
+				<ul class="breadcrumbs">
+					<li class="nav-home">
+						<a href="#">
+							<i class="flaticon-home"></i>
+						</a>
+					</li>
+					<li class="separator">
+						<i class="flaticon-right-arrow"></i>
+					</li>
+					<li class="nav-item">
+						<a href="#">Formulario</a>
+					</li>
+				</ul>
+			</div>
+			<div class="container p-4">
+				<div class="card max-auto">
+					<div class="modal-header bg-primary text-white">
+						<h5 class="modal-title" id="exampleModalLabel">DATOS VEHICULOS</h5>
+					</div>
+					<div class="modal-body">						
+                        <form action="/data/editrelacionvehiculos/{{data.id}}" method="POST">
+							<div class="mb-3">
+								<input type="number" value="{{data.clvEmpleado}}" class="form-control" id="clvEmpleado" name="clvEmpleado" placeholder="Clave Empleado" autofocus required>
+							</div>
+							<div class="mb-3">
+								<select id="sucursal" value="{{data.sucursal}}"  class="form-control" name="sucursal" placeholder="Sucurdal" type="text-center"  required>
+                                    <option value="">Seleciona una sucursal</option>
+									<option value="ACAPULCO">ACAPULCO</option>
+									<option value="ESCOBEDO">ESCOBEDO</option>
+									<option value="SANTA CATARINA">SANTA CATARINA</option>
+									<option value="SOLIDARIDAD">SOLIDARIDAD</option>
+								</select>
+							</div>
+							<div class="mb-3">
+								<input type="text" value="{{data.nomEmpleado}}" class="form-control" id="nomEmpleado" name="nomEmpleado" placeholder="Nombre Empleado" required>
+							</div>
+							<div class="mb-3">
+								<input type="text" value="{{data.apPaterno}}" class="form-control" id="apPaterno" name="apPaterno" placeholder="Apellido Paterno"  required> 
+							</div>
+							<div class="mb-3">
+								<input type="text" value="{{data.apMaterno}}" class="form-control" id="apMaterno" name="apMaterno" placeholder="Apellido Materno"  required>
+							</div>
+
+							<div class="mb-3">
+							    <input type="number" value="{{data.yearModelo}}" class="form-control" id="yearModelo" name="yearModelo" placeholder="Año Modelo" required>
+							</div>
+							<div class="mb-3">
+							    <input type="text" value="{{data.modelo}}" class="form-control" id="modelo" name="modelo" placeholder="Modelo" required>
+							</div>
+							<div class="mb-3">
+								<input type="text" value="{{data.colorMoto}}" class="form-control" id="colorMoto" name="colorMoto" placeholder="Color moto" required>
+							</div>
+							<div class="mb-3">
+								<input type="text" value="{{data.numSerie}}" class="form-control" id="numSerie" name="numSerie" placeholder="Numero de serie" required>
+							</div>
+							<div class="mb-3">
+								<input type="text" value="{{data.numPlacas}}" class="form-control" id="numPlacas" name="numPlacas" placeholder="Numero de placas" required>
+							</div>											
+													
+							<div class="mb-3">
+								<input type="text" value="{{data.numPoliza}}" class="form-control" id="numPoliza" name="numPoliza" placeholder="Numero de poliza" required>
+							</div>
+							<div class="mb-3">
+								<input type="text" value="{{data.numInciso}}" class="form-control" id="numInciso" name="numInciso" placeholder="Numero de inciso" required>
+							</div>
+							<div class="mb-3">
+								<input type="text" value="{{data.polizaVencimiento}}" class="form-control" id="polizaVencimiento" name="polizaVencimiento" placeholder="Vencimiento de poliza" required> 
+							</div>											
+							<div class="mb-3">
+								<input type="text" value="{{data.numFactura}}" class="form-control" id="numFactura" name="numFactura" placeholder="Numero de factura" required>
+							</div>
+							<div class="mb-3">
+								<input type="text" value="{{data.fechaFactura}}" class="form-control" id="fechaFactura" name="fechaFactura" placeholder="Fecha de factura" required>
+							</div>																						
+															
+							<div class="mb-3">
+								<input type="text" value="{{data.subtotalFactura}}" class="form-control" id="subtotalFactura" name="subtotalFactura" placeholder="Sub total factura" required>
+							</div>
+							<div class="mb-3">
+								<input type="text" value="{{data.ivaFactura}}" class="form-control" id="ivaFactura" name="ivaFactura" placeholder="Iva factura" required>
+							</div>
+							<div class="mb-3">
+								<input type="text" value="{{data.totalFactura}}" class="form-control" id="totalFactura" name="totalFactura" placeholder="Total factura" required>
+							</div>
+							<div class="mb-3">
+								<input type="text" value="{{data.aseguradora}}" class="form-control" id="aseguradora" name="aseguradora" placeholder="Aseguradora" required>
+							</div>
+							<div class="mb-3">
+								<input type="text" value="{{data.estadoPoliza}}" class="form-control" id="estadoPoliza" name="estadoPoliza" placeholder="Estado de poliza" required>
+							</div>
+							<div class="mb-3">
+								<textarea name="observaciones" value="{{data.observaciones}}" class="form-control" id="observaciones" rows="2" placeholder="Observaciones"></textarea>
+							</div>
+							<div class="modal-footer">
+								<button type="submit" class="btn btn-success">Guardar</button>
+								<button type="submit" class="btn btn-primary">Editar</button>
+							</div>				
+						</form>
+					</div>
+				</div>
+			</div>
+			<div class="page-header">
+				<h4 class="page-title">Parque Vehicuar</h4>
+				<ul class="breadcrumbs">
+					<li class="nav-home">
+						<a href="#">
+							<i class="flaticon-home"></i>
+						</a>
+					</li>
+					<li class="separator">
+						<i class="flaticon-right-arrow"></i>
+					</li>
+					<li class="nav-item">
+						<a href="#">Tablas</a>
+					</li>
+				</ul>
+			</div>
+			<div class="col-md-12">
+				<div class="card">
+					<div class="card-header">
+						<div class="d-flex align-items-center">
+							<h4 class="card-title">Relacion de vehiculos y polizas de seguro monterrey</h4>
+							<button id="btnCrear" class="btn btn-primary btn-round ml-auto" data-toggle="modal"><i class="fa-solid fa-user-pen"></i> Agregar</button>
+						</div>
+					</div>
+					<div class="card-body">
+						<div class="table-responsive">
+							<table id="tablaArticulos" class="table mt-2 table-bordered table-striped">
+								<thead style="background-color: #09D368; color: #fff;">
+									<tr class="text-center">
+										<th class="centered">ID</th>
+										<th class="centered">Clave Empleado</th>
+										<th class="centered">Sucursal</th>
+										<th class="centered">Nombre Empleado</th>
+										<th class="centered">Apellido paterno</th>
+										<th class="centered">Apellido materno</th>
+										<th class="centered">Año del modelo</th>
+										<th class="centered">Modelo</th>
+										<th class="centered">Color moto</th>
+										<th class="centered">Numero de serie</th>
+										<th class="centered">Numero de placas</th>
+										<th class="centered">Numero de poliza</th>
+										<th class="centered">Numero Inciso</th>
+										<th class="centered">Vencimiento de poliza</th>
+										<th class="centered">Numero de factura</th>
+										<th class="centered">Fecha de factura</th>
+										<th class="centered">Sub total factura</th>
+										<th class="centered">Iva factura</th>
+										<th class="centered">Total de la factura</th>
+										<th class="centered">Aseguradora</th>
+										<th class="centered">Estado de poliza</th>
+										<th class="centered">Observaciones</th>
+										<th class="centered">Editar</th>
+										<th class="centered">Eliminar</th>
+									</tr>
+								</thead>
+								<tbody>
+									{{#each getData}}
+										<tr>
+											<td>{{id}}</td>
+											<td>{{clvEmpleado}}</td>
+											<td>{{sucursal}}</td>
+											<td>{{nomEmpleado}}</td>
+											<td>{{apPaterno}}</td>
+											<td>{{apMaterno}}</td>
+											<td>{{yearModelo}}</td>
+											<td>{{modelo}}</td>
+											<td>{{colorMoto}}</td>
+											<td>{{numSerie}}</td>
+											<td>{{numPlacas}}</td>
+											<td>{{numPoliza}}</td>
+											<td>{{numInciso}}</td>
+											<td>{{polizaVencimiento}}</td>
+											<td>{{numFactura}}</td>
+											<td>{{fechaFactura}}</td>
+											<td>{{subtotalFactura}}</td>
+											<td>{{ivaFactura}}</td>
+											<td>{{totalFactura}}</td>
+											<td>{{aseguradora}}</td>
+											<td>{{estadoPoliza}}</td>
+											<td>{{observaciones}}</td>											
+											<td><a href="/data/editrelacionvehiculos/{{id}}" class="btnEditar btn btn-primary"><i class="fa-solid fa-pen-to-square fa-xs" style="color: #ffffff;"></i></a></td>
+											<td><a href="/data/delete/{{id}}" class="btnBorrar btn btn-danger"><i class="fa-solid fa-delete-left fa-xs" style="color: #ffffff;"></i></a></td>
+										</tr>
+									{{/each}}
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>	
+			</div>
+		</div>
+	</div>
+	<footer class="footer">
+		<div class="container-fluid">
+			<nav class="pull-left">
+				<ul class="nav">
+					<li class="nav-item">
+						<a class="nav-link" href="#">
+							Todos los derechos reservados 
+						</a>
+					</li>
+				</ul>
+			</nav>
+			<div class="copyright ml-auto">
+				2023, Mi <a href="#">Abuelito</a> Te Presta
+			</div>				
+		</div>
+	</footer>
+</div>
+    
