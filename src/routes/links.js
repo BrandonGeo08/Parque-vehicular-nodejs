@@ -23,6 +23,7 @@ router.post('/relacionvehiculos', async (req, res) =>{
         estadoPoliza,observaciones
     };
     await pool.query('INSERT INTO relacionvehiculos set ?', [newData]);
+    req.flash('success', 'Informacion agregada correctamente');
     res.redirect('/data/relacionvehiculos');
 });
 
@@ -30,6 +31,7 @@ router.post('/relacionvehiculos', async (req, res) =>{
 router.get('/delete/:id', async (req, res) =>{
     const {id} = req.params;
     await pool.query ('DELETE FROM relacionvehiculos WHERE ID = ?', [id]);
+    req.flash('success', 'Informacion eliminada correctamente');
     res.redirect('/data/relacionvehiculos');
 });
 
@@ -53,6 +55,7 @@ router.post('/editrelacionvehiculos/:id', async (req, res) =>{
         estadoPoliza,observaciones
     };
     await pool.query('UPDATE relacionvehiculos set ? WHERE id = ?', [newData, id]);
+    req.flash('success', 'Informacion editada correctamente');
     res.redirect('/data/relacionvehiculos');
 });
 

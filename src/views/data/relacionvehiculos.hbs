@@ -25,7 +25,6 @@
 					</div>
 					<div class="modal-body">
 						<form action="/data/relacionvehiculos" method="POST">
-
 							<div class="mb-3">
 								<input type="number" class="form-control" id="clvEmpleado" name="clvEmpleado" placeholder="Clave Empleado" autofocus required>
 							</div>
@@ -130,6 +129,20 @@
 							<button id="btnCrear" class="btn btn-primary btn-round ml-auto" data-toggle="modal"><i class="fa-solid fa-user-pen"></i> Agregar</button>
 						</div>
 					</div>
+					{{#if success}}
+					<div class="container">
+						<div class="row">
+							<div class="col-md-4 mx-auto">
+								<div class="alert alert-success alert-dismissible fade show" role="alert">
+									{{success}}
+									<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+										<span aria-hidden="true">&times;</span>
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					{{/if}}
 					<div class="card-body">
 						<div class="table-responsive">
 							<table id="tablaArticulos" class="table mt-2 table-bordered table-striped">
