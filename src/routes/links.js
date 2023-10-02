@@ -2,15 +2,17 @@ const express = require('express');
 const router = express.Router();
 
 const pool = require('../database')
+const {isLoggedIn} = require('../lib/auth')
 
 
-router.get('/relacionvehiculos', async (req, res) => {
+
+router.get('/relacionvehiculos', isLoggedIn, async (req, res) => {
     const getData = await pool.query('SELECT * FROM relacionvehiculos');
     res.render('data/relacionvehiculos', {getData});
 });
 
 
-router.post('/relacionvehiculos', async (req, res) =>{
+router.post('/relacionvehiculos', isLoggedIn, async (req, res) =>{
     const {clvEmpleado,sucursal,nomEmpleado,apPaterno,apMaterno,yearModelo,
         modelo,colorMoto,numSerie,numPlacas,numPoliza,numInciso,polizaVencimiento,
         numFactura,fechaFactura,subtotalFactura,ivaFactura,totalFactura,aseguradora,
@@ -28,20 +30,20 @@ router.post('/relacionvehiculos', async (req, res) =>{
 });
 
 
-router.get('/delete/:id', async (req, res) =>{
+router.get('/delete/:id', isLoggedIn, async (req, res) =>{
     const {id} = req.params;
     await pool.query ('DELETE FROM relacionvehiculos WHERE ID = ?', [id]);
     req.flash('success', 'Informacion eliminada correctamente');
     res.redirect('/data/relacionvehiculos');
 });
 
-router.get('/editrelacionvehiculos/:id', async (req, res) =>{
+router.get('/editrelacionvehiculos/:id', isLoggedIn, async (req, res) =>{
     const {id} = req.params;
     const editData = await pool.query('SELECT * FROM relacionvehiculos WHERE id = ?', [id]);
     res.render('data/editrelacionvehiculos', {data: editData[0]});
 });
 
-router.post('/editrelacionvehiculos/:id', async (req, res) =>{
+router.post('/editrelacionvehiculos/:id', isLoggedIn, async (req, res) =>{
     const {id} = req.params;
     const {clvEmpleado,sucursal,nomEmpleado,apPaterno,apMaterno,yearModelo,
         modelo,colorMoto,numSerie,numPlacas,numPoliza,numInciso,polizaVencimiento,
