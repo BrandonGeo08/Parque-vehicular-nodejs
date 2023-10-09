@@ -1,9 +1,13 @@
+/**Requiriendo las dependencias/modulos a utilizar */
 const mysql = require('mysql2');
+/**Modulo para soportar promesas */
 const {promisify} = require('util')
 const {database} = require('./keys');
 
+/**Metodo de conexion createPool */
 const pool = mysql.createPool(database);
 
+/**Utilizando metodo getConnection para obtener una conexion o un error*/
 pool.getConnection((err, connection) => {
     if(err){
         if (err.code === 'PROTOCOL_CONNECTION_LOST'){
@@ -21,7 +25,7 @@ pool.getConnection((err, connection) => {
     console.log('DB is Connected');
 });
 
-//Promisify pool querys
+/**Metodo para poder utilizar promesas en las consultas  */
 pool.query = promisify(pool.query);
 
 module.exports=pool;

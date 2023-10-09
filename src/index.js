@@ -1,3 +1,4 @@
+/**Requiriendo las dependencias/modulos a utilizar */
 const express = require('express');
 const morgan = require('morgan');
 const path = require('path');
@@ -9,17 +10,24 @@ const passport = require('passport');
 
 const { database } = require('./keys');
 
-/**
- * Initializations
- */
+/**Inicializamos express y lo 
+  guardamos en una constante llamada app*/
 const app = express();
 require('./lib/passport')
 
-/**
- * settings
+/** Settings
+ * configuraciones para le servidor express
  */
 app.set('port', process.env.PORT || 4000);
 app.set('views', path.join(__dirname, 'views'));
+/**
+ * Configuraciones del motor de plantillas handlebars
+ * @defaulLayaut es la plantilla principal que cuenta con el head, los link css, los scripts
+ * @layoutsDir con el modulo path.join que nos ayuda a unir directorios traemos la direccion de la carpeta views concatenando la carpeta layouts
+ * @partialsDir unimos otro directorio, en la carpeta partials para poder utilizar un codigo en varias vistas en este caso la navegacion de la app (navbar, sidebar)
+ * @extname configura el la terminacion de nuestros archivos handlebars 
+ * @helpers definir donde se encuetran algunas funciones 
+ */
 app.engine('.hbs', exphbs.engine({
     defaultLayout: 'main.hbs',
     layoutsDir: path.join(app.get('views'), 'layouts'),
@@ -29,8 +37,9 @@ app.engine('.hbs', exphbs.engine({
   }))
 app.set('view engine', '.hbs');
 
-/*, 
+/** 
  * Middlewares
+ * funciones ejecutables cada que se realice una petición 
  */
 app.use(session({
     secret: 'datasession',
@@ -47,6 +56,7 @@ app.use(passport.session());
 
 /**
  * Global Variables 
+ * Variables que toda la app necesita
  */
 app.use((req, res, next)=>{
     app.locals.success = req.flash('success');
@@ -57,6 +67,7 @@ app.use((req, res, next)=>{
 
 /**
  * Routes
+ * URL del servidor a donde direccionara al cliente 
  */
 app.use(require('./routes/index'));
 app.use(require('./routes/authentication'))
@@ -66,12 +77,14 @@ app.use('/data', require('./routes/links'));
 
 /**
  * Public
+ * El navegador puede acceder a todo el codigo que contenga public (archivos css,js,img etc)
  */
 app.use(express.static(path.join(__dirname, 'public')));
 
 
 /**
  * Starting the server
+ * Inicializa el server tomando el puerto definido
  */
 app.listen(app.get('port'), () =>{
     console.log('Server on port', app.get('port'));

@@ -5,17 +5,17 @@ const helpers = require('./helpers');
 
 
 passport.use('local.signin', new LocalStrategy({
-    usernameField: 'username',
+    usernameField: 'clvEmployee',
     passwordField: 'password',
     passReqToCallback: true
-}, async (req, username, password, done) =>{
+}, async (req, clvEmployee, password, done) =>{
     console.log(req.body);
-    const rows = await pool.query('SELECT * FROM users WHERE username = ?', [username]);
+    const rows = await pool.query('SELECT * FROM users WHERE clvEmployee = ?', [clvEmployee]);
     if(rows.length > 0){
         const user = rows[0];
         const validPassword = await helpers.matchPassword(password, user.password);
         if(validPassword){
-            done(null, user, req.flash('success', 'Bienvenido' + user.username));
+            done(null, user, req.flash('success', 'Bienvenido' + user.clvEmployee));
         }else{
             done(null, false, req.flash('message', 'Contrsaeña incorrecta'))
         }
@@ -25,14 +25,15 @@ passport.use('local.signin', new LocalStrategy({
 }));
 
 passport.use('local.signup', new LocalStrategy({
-    usernameField: 'username',
+    usernameField: 'clvEmployee',
     passwordField: 'password',
     passReqToCallback: true
-}, async (req, username, password, done)=>{
+}, async (req, clvEmployee, password, done)=>{
     const {fullname} = req.body
     const newUser = {
-        username,
+        clvEmployee,
         password,
+        username,
         fullname
     }
     newUser.password= await helpers.encryptPassword(password);

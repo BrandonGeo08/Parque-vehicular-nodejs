@@ -1,0 +1,388 @@
+<div class="main-panel">
+    <div class="content">
+        <div class="page-inner">
+            <div class="container">
+                <div class="row">
+                    <div>
+                        <button type="submit" id="btnCrearPdf" class="btn btn-primary">Export</button>
+                        <a href="../data/checklist" class="btn btn-primary">Limpiar</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container" style="background-color: white;" id="pdf">
+                {{!-- Imagen --}}
+                <div>
+                    <img src="/img/logo_borde.png" class="logo">
+                    <h2 class="title">CHECK LIST DE MOTOCICLETA</h2>
+                </div>
+                {{!-- --}}
+
+                {{!-- Datos --}}
+                <div>
+                    <form>
+                        <div class="form-group">
+                            <label>Fecha: </label>
+                            <input class="form-control-sm" style="width : 14%;" type="date">
+                            <label>Hora: </label>
+                            <input class="form-control-sm" style="width : 14%;" type="time"><br>
+                            <label>Nombre empleado</label>
+                            <input class="form-control-sm" style="width : 50%;" type="text"><br>
+                            <label>Quien realizo check list</label>
+                            <input class="form-control-sm" style="width : 50%;" type="text"><br>
+                        </div>
+                    </form>
+                </div>
+                <hr>
+                {{!-- fin datos --}}
+
+                {{!-- Check checkbox --}}
+                <div class="table-responsive-sm">
+                    <table class="table table-sm table-bordered">
+                        <thead class="table-active">
+                            <tr>
+                                <th scope="col">Componente</th>
+                                <th scope="col">Estado Bueno</th>
+                                <th scope="col">Estado Regular</th>
+                                <th scope="col">Estado Malo</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row" class="table-active">Luz Stop</th>
+                                <td class="check_td_input"><input class="checkbox" type="checkbox"></td>
+                                <td class="check_td_input"><input class="checkbox" type="checkbox"></td>
+                                <td class="check_td_input"><input class="checkbox" type="checkbox"></td>
+                            </tr>
+                            <tr>
+                                <th scope="row" class="table-active">Placas</th>
+                                <td class="check_td_input"><input class="checkbox" type="checkbox"></td>
+                                <td class="check_td_input"><input class="checkbox" type="checkbox"></td>
+                                <td class="check_td_input"><input class="checkbox" type="checkbox"></td>
+                            </tr>
+                            <tr>
+                                <th scope="row" class="table-active">Amortiguadores</th>
+                                <td class="check_td_input"><input class="checkbox" type="checkbox"></td>
+                                <td class="check_td_input"><input class="checkbox" type="checkbox"></td>
+                                <td class="check_td_input"><input class="checkbox" type="checkbox"></td>
+                            </tr>
+                            <tr>
+                                <th scope="row" class="table-active">Escape</th>
+                                <td class="check_td_input"><input class="checkbox" type="checkbox"></td>
+                                <td class="check_td_input"><input class="checkbox" type="checkbox"></td>
+                                <td class="check_td_input"><input class="checkbox" type="checkbox"></td>
+                            </tr>
+                            <tr>
+                                <th scope="row" class="table-active">Cadena</th>
+                                <td class="check_td_input"><input class="checkbox" type="checkbox"></td>
+                                <td class="check_td_input"><input class="checkbox" type="checkbox"></td>
+                                <td class="check_td_input"><input class="checkbox" type="checkbox"></td>
+                            </tr>
+                            <tr>
+                                <th scope="row" class="table-active">Encendido Patada</th>
+                                <td class="check_td_input"><input class="checkbox" type="checkbox"></td>
+                                <td class="check_td_input"><input class="checkbox" type="checkbox"></td>
+                                <td class="check_td_input"><input class="checkbox" type="checkbox"></td>
+                            </tr>
+                            <tr>
+                                <th scope="row" class="table-active">Asiento</th>
+                                <td class="check_td_input"><input class="checkbox" type="checkbox"></td>
+                                <td class="check_td_input"><input class="checkbox" type="checkbox"></td>
+                                <td class="check_td_input"><input class="checkbox" type="checkbox"></td>
+                            </tr>
+                            <tr>
+                                <th scope="row" class="table-active">Tanque Gasolina</th>
+                                <td class="check_td_input"><input class="checkbox" type="checkbox"></td>
+                                <td class="check_td_input"><input class="checkbox" type="checkbox"></td>
+                                <td class="check_td_input"><input class="checkbox" type="checkbox"></td>
+                            </tr>
+                            <tr>
+                                <th scope="row" class="table-active">Odometro/velocimetro</th>
+                                <td class="check_td_input"><input class="checkbox" type="checkbox"></td>
+                                <td class="check_td_input"><input class="checkbox" type="checkbox"></td>
+                                <td class="check_td_input"><input class="checkbox" type="checkbox"></td>
+                            </tr>
+                            <tr>
+                                <th scope="row" class="table-active">Faros D/T</th>
+                                <td class="check_td_input">
+                                    <label> Delantera <br> <input class="checkbox" type="checkbox"> </label>
+                                    <label> Trasera <br> <input class="checkbox" type="checkbox"> </label>
+                                </td>
+                                <td class="check_td_input">
+                                    <label> Delantera <br> <input class="checkbox" type="checkbox"> </label>
+                                    <label> Trasera <br> <input class="checkbox" type="checkbox"> </label>
+                                </td>
+                                <td class="check_td_input">
+                                    <label> Delantera <br> <input class="checkbox" type="checkbox"> </label>
+                                    <label> Trasera <br> <input class="checkbox" type="checkbox"> </label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row" class="table-active">Direccionales D/T</th>
+                                <td class="check_td_input">
+                                    <label> Delantera <br> <input class="checkbox" type="checkbox"> </label>
+                                    <label> Trasera <br> <input class="checkbox" type="checkbox"> </label>
+                                </td>
+                                <td class="check_td_input">
+                                    <label> Delantera <br> <input class="checkbox" type="checkbox"> </label>
+                                    <label> Trasera <br> <input class="checkbox" type="checkbox"> </label>
+                                </td>
+                                <td class="check_td_input">
+                                    <label> Delantera <br> <input class="checkbox" type="checkbox"> </label>
+                                    <label> Trasera <br> <input class="checkbox" type="checkbox"> </label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row" class="table-active">Salpicaduras D/T</th>
+                                <td class="check_td_input">
+                                    <label> Delantera <br> <input class="checkbox" type="checkbox"> </label>
+                                    <label> Trasera <br> <input class="checkbox" type="checkbox"> </label>
+                                </td>
+                                <td class="check_td_input">
+                                    <label> Delantera <br> <input class="checkbox" type="checkbox"> </label>
+                                    <label> Trasera <br> <input class="checkbox" type="checkbox"> </label>
+                                </td>
+                                <td class="check_td_input">
+                                    <label> Delantera <br> <input class="checkbox" type="checkbox"> </label>
+                                    <label> Trasera <br> <input class="checkbox" type="checkbox"> </label>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <th scope="row" class="table-active">Llantas/Rines D/T</th>
+                                <td class="check_td_input">
+                                    <label> Delantera <br> <input class="checkbox" type="checkbox"> </label>
+                                    <label> Trasera <br> <input class="checkbox" type="checkbox"> </label>
+                                </td>
+                                <td class="check_td_input">
+                                    <label> Delantera <br> <input class="checkbox" type="checkbox"> </label>
+                                    <label> Trasera <br> <input class="checkbox" type="checkbox"> </label>
+                                </td>
+                                <td class="check_td_input">
+                                    <label> Delantera <br> <input class="checkbox" type="checkbox"> </label>
+                                    <label> Trasera <br> <input class="checkbox" type="checkbox"> </label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row" class="table-active">Frenos D/T</th>
+                                <td class="check_td_input">
+                                    <label> Delantera <br> <input class="checkbox" type="checkbox"> </label>
+                                    <label> Trasera <br> <input class="checkbox" type="checkbox"> </label>
+                                </td>
+                                <td class="check_td_input">
+                                    <label> Delantera <br> <input class="checkbox" type="checkbox"> </label>
+                                    <label> Trasera <br> <input class="checkbox" type="checkbox"> </label>
+                                </td>
+                                <td class="check_td_input">
+                                    <label> Delantera <br> <input class="checkbox" type="checkbox"> </label>
+                                    <label> Trasera <br> <input class="checkbox" type="checkbox"> </label>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div><br>
+                <hr>
+                {{!-- Fin checkbox --}}
+
+                {{!-- tabla Documentos --}}
+                <div class="table-responsive-sm">
+                    <table class="table .table-sm table-bordered">
+                        <thead class="table-active">
+                            <tr>
+                                <th scope="col">Documentos</th>
+                                <th scope="col">Tarjeta Circulacion</th>
+                                <th scope="col">Licencia vijente</th>
+                                <th scope="col">Seguro</th>
+                                <th scope="col">Holograma</th>
+                                <th scope="col">Otro</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row" class="table-active">Originales</th>
+                                <td class="check_td_input"><input class="checkbox" type="checkbox"></td>
+                                <td class="check_td_input"><input class="checkbox" type="checkbox"></td>
+                                <td class="check_td_input"><input class="checkbox" type="checkbox"></td>
+                                <td class="check_td_input"><input class="checkbox" type="checkbox"></td>
+                                <td class="check_td_input"><input type="text" class="input_tabla"></td>
+                            </tr>
+                            <tr>
+                                <th scope="row" class="table-active">Copia</th>
+                                <td class="check_td_input"><input class="checkbox" type="checkbox"></td>
+                                <td class="check_td_input"><input class="checkbox" type="checkbox"></td>
+                                <td class="check_td_input"><input class="checkbox" type="checkbox"></td>
+                                <td class="check_td_input"><input class="checkbox" type="checkbox"></td>
+                                <td><input type="text" class="input_tabla"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <hr>
+                {{!-- Fin tavla documentos --}}
+
+                {{!-- Tabla caracteristicas de vehiculo --}}
+                <div class="table-responsive-sm">
+                    <table class="table .table-sm table-bordered">
+                        <thead class="table-active">
+                            <tr>
+                                <th scope="col">Placas</th>
+                                <th scope="col">Marca</th>
+                                <th scope="col">Modelo</th>
+                                <th scope="col">Version</th>
+                                <th scope="col">Color</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><input type="text" class="input_tabla"></td>
+                                <td><input type="text" class="input_tabla"></td>
+                                <td><input type="text" class="input_tabla"></td>
+                                <td><input type="text" class="input_tabla"></td>
+                                <td><input type="text" class="input_tabla"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <hr>
+                {{!-- Fin tabla Caracteristicas --}}
+
+                {{!-- Tabla estado mecanico --}}
+                <div class="table-responsive-sm">
+                    <table class="table .table-sm table-bordered">
+                        <thead class="table-active">
+                            <tr>
+                                <th scope="col">Estado</th>
+                                <th scope="col">Aceite</th>
+                                <th scope="col">Bujias</th>
+                                <th scope="col">Balatas del</th>
+                                <th scope="col">Balatas tra</th>
+                                <th scope="col">Filtro de aire</th>
+                                <th scope="col">Llantas</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">Bueno</th>
+                                <td class="check_td_input"><input class="checkbox" type="checkbox"></td>
+                                <td class="check_td_input"><input class="checkbox" type="checkbox"></td>
+                                <td class="check_td_input"><input class="checkbox" type="checkbox"></td>
+                                <td class="check_td_input"><input class="checkbox" type="checkbox"></td>
+                                <td class="check_td_input"><input class="checkbox" type="checkbox"></td>
+                                <td class="check_td_input"><input class="checkbox" type="checkbox"></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Regular</th>
+                                <td class="check_td_input"><input class="checkbox" type="checkbox"></td>
+                                <td class="check_td_input"><input class="checkbox" type="checkbox"></td>
+                                <td class="check_td_input"><input class="checkbox" type="checkbox"></td>
+                                <td class="check_td_input"><input class="checkbox" type="checkbox"></td>
+                                <td class="check_td_input"><input class="checkbox" type="checkbox"></td>
+                                <td class="check_td_input"><input class="checkbox" type="checkbox"></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Se realizo cambio</th>
+                                <td class="check_td_input"><input class="checkbox" type="checkbox"></td>
+                                <td class="check_td_input"><input class="checkbox" type="checkbox"></td>
+                                <td class="check_td_input"><input class="checkbox" type="checkbox"></td>
+                                <td class="check_td_input"><input class="checkbox" type="checkbox"></td>
+                                <td class="check_td_input"><input class="checkbox" type="checkbox"></td>
+                                <td class="check_td_input"><input class="checkbox" type="checkbox"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <hr>
+                {{!-- Fin tabla estado mecanico --}}
+
+                {{!-- Kilometraje, serv prox. observaciones --}}
+                <div>
+                    <form>
+                        <div class="form-group">
+                            <label>Kilomentraje: </label>
+                            <input class="form-control-sm" style="width : 14%;" type="number">
+                            <label>Proximo servicio: </label>
+                            <input class="form-control-sm" style="width : 14%;" type="date"><br>
+                            <label>Observaciones: </label>
+                            <textarea rows="1"></textarea>
+                        </div>
+                    </form>
+                </div>
+                {{!-- Fin km, serv, obs --}}
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"
+    integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        // Escuchamos el click del botón
+        const $boton = document.querySelector("#btnCrearPdf");
+        $boton.addEventListener("click", () => {
+            const $elementoParaConvertir = document.getElementById("pdf"); // <-- Aquí puedes elegir cualquier elemento del DOM
+            html2pdf()
+                .set({
+                    margin: 1,
+                    filename: 'Check list motocicleta.pdf',
+                    image: {
+                        type: 'jpeg',
+                        quality: 0.98
+                    },
+                    html2canvas: {
+                        scale: 5,
+                        letterRendering: true,
+                    },
+                    jsPDF: {
+                        orientation: 'p',
+                        unit: 'mm',
+                        format: 'a4',
+                        putOnlyUsedFonts: true,
+                        floatPrecision: 16 // or "smart", default is 16
+                    }
+                })
+                .from($elementoParaConvertir)
+                .save()
+                .catch(err => console.log(err));
+        });
+    });
+</script>
+<style>
+    .title {
+        text-align: center;
+        color: black;
+        opacity: 0.5;
+    }
+
+    input,
+    textarea {
+        border-bottom: 1px solid !important;
+        border: none;
+        width: 100%;
+    }
+
+    .input_tabla {
+        width: 100%;
+    }
+
+    .check_td_input {
+        text-align: center;
+    }
+
+    .checkbox {
+        width: 15px;
+        height: 15px;
+    }
+
+    img.logo {
+        float: right;
+        border-radius: 50%;
+        padding: 5px;
+        width: 85px;
+        opacity: 0.5;
+    }
+
+    table {
+        text-align: center;
+    }
+</style>

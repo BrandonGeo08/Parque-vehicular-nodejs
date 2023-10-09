@@ -4,7 +4,7 @@ $(document).ready(function() {
     $('#tablaArticulos').DataTable( {
         responsive: true,
         order: [[0, 'desc']],
-        pageLength: 10,
+        pageLength: 7,
         scrollX: true,
         dom: 'Bftrip',
         // pagingType: 'full_numbers',
