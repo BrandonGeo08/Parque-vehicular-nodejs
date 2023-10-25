@@ -25,7 +25,7 @@ pool.getConnection((err, connection) => {
     console.log('DB is Connected');
 });
 
-/**Metodo para poder utilizar promesas en las consultas  */
+//Metodo para poder utilizar promesas en las consultas 
 pool.query = promisify(pool.query);
 
 module.exports=pool;

@@ -46,3 +46,7 @@ INSERT INTO `parque_vehicular`.`acapulco` (`clvEmpleado`, `sucursal`, `nomEmplea
 INSERT INTO `parque_vehicular`.`acapulco` (`clvEmpleado`, `sucursal`, `nomEmpleado`, `apPaterno`, `apMaterno`, `yearModelo`, `modelo`, `colorMoto`, `numSerie`, `numPlacas`, `numPoliza`, `numInciso`, `polizaVencimiento`, `numFactura`, `fechaFactura`, `subtotalFactura`, `ivaFactura`, `totalFactura`, `aseguradora`, `estadoPoliza`) VALUES ('9997', 'ACAPULCO', 'JESUS ALBERTO', 'OJEDA', 'ZAMARRON', '2023', 'CARGO 150', 'BLANCO', '3H1KA0548PD103896', '09SAM7', '8C2E8B015W', 'NO APLICA', '2023-12-09', 'A31646', '2022-05-12', '33,181.03', '5,308.97', '38,490.00', 'BBVA', 'BIEN ');
 
 INSERT INTO `parque_vehicular`.`acapulco` (`clvEmpleado`, `sucursal`, `nomEmpleado`, `apPaterno`, `apMaterno`, `yearModelo`, `modelo`, `colorMoto`, `numSerie`, `numPlacas`, `numPoliza`, `numInciso`, `polizaVencimiento`, `numFactura`, `fechaFactura`, `subtotalFactura`, `ivaFactura`, `totalFactura`, `aseguradora`, `estadoPoliza`) VALUES ('9996', 'ACAPULCO', 'VACANTE', 'VACANTE', 'VACANTE', '2023', 'CARGO 150', 'BLANCO', '3H1KA0548PD102649', '71SCD1', '823E8B02BM', 'NO APLICA', '2024-02-21', 'A32279', '2023-02-20', '33,181.97', '5,308.97', '38,490.00', 'BBVA', 'BIEN ');
+
+
+ALTER TABLE acapulco
+    ADD timeago TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP

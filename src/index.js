@@ -7,6 +7,7 @@ const flash = require('connect-flash');
 const session = require('express-session')
 const MySQLStore = require('express-mysql-session')(session)
 const passport = require('passport');
+const Swal = require('sweetalert2')
 
 const { database } = require('./keys');
 
@@ -33,9 +34,10 @@ app.engine('.hbs', exphbs.engine({
     layoutsDir: path.join(app.get('views'), 'layouts'),
     partialsDir: path.join(app.get('views'), 'partials'),
     extname: '.hbs',
-    helpers: require('./lib/handlebars')
+    helpers: require('./lib/helpers')
   }))
 app.set('view engine', '.hbs');
+
 
 /** 
  * Middlewares
@@ -61,7 +63,7 @@ app.use(passport.session());
 app.use((req, res, next)=>{
     app.locals.success = req.flash('success');
     app.locals.message = req.flash('message');
-    app.locals.user = req.user;
+    app.locals.user =  req.user;
     next();
 })
 
@@ -72,7 +74,6 @@ app.use((req, res, next)=>{
 app.use(require('./routes/index'));
 app.use(require('./routes/authentication'))
 app.use('/data', require('./routes/links'));
-
 
 
 /**

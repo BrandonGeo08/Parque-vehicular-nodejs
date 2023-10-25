@@ -105,13 +105,13 @@
 									<input type="text" value="{{data.fechaFactura}}" class="form-control" id="fechaFactura" name="fechaFactura" placeholder="Fecha de factura" required>
 								</div>
 								<div class="mb-3">
-									<input type="text" value="{{data.subtotalFactura}}" class="form-control" id="subtotalFactura" name="subtotalFactura" placeholder="Sub total factura" required>
+									<input type="number" step="any" value="{{data.subtotalFactura}}" class="form-control" id="subtotalFactura" name="subtotalFactura" placeholder="Sub total factura" required>
 								</div>
 								<div class="mb-3">
-									<input type="text" value="{{data.ivaFactura}}" class="form-control" id="ivaFactura" name="ivaFactura" placeholder="Iva factura" required>
+									<input type="number" step="any" value="{{data.ivaFactura}}" class="form-control" id="ivaFactura" name="ivaFactura" placeholder="Iva factura" required>
 								</div>
 								<div class="mb-3">
-									<input type="text" value="{{data.totalFactura}}" class="form-control" id="totalFactura" name="totalFactura" placeholder="Total factura" required>
+									<input type="number" step="any" value="{{data.totalFactura}}" class="form-control" id="totalFactura" name="totalFactura" placeholder="Total factura" required>
 								</div>
 								<div class="mb-3">
 									<input type="text" value="{{data.aseguradora}}" class="form-control" id="aseguradora" name="aseguradora" placeholder="Aseguradora" required>
@@ -132,6 +132,7 @@
 					</div>
 				</form>
 			</div>
+			
 			<div class="page-header">
 				<h4 class="page-title">Parque Vehicuar</h4>
 				<ul class="breadcrumbs">
@@ -153,15 +154,14 @@
 					<div class="card-header">
 						<div class="d-flex align-items-center">
 							<h4 class="card-title">Relacion de vehiculos y polizas de seguro monterrey</h4>
-							<button id="btnCrear" class="btn btn-primary btn-round ml-auto" data-toggle="modal"><i class="fa-solid fa-user-pen"></i> Agregar</button>
 						</div>
 					</div>
 					<div class="card-body">
 						<div class="table-responsive">
-							<table id="tablaArticulos" class="table mt-2 table-bordered table-striped">
+							<table id="tablaPV" class="table mt-2 table-bordered table-striped">
 								<thead style="background-color: #09D368; color: #fff;">
 									<tr class="text-center">
-										<th class="centered">Editar</th>
+										<th class="centered">ID</th>
 										<th class="centered">Clave Empleado</th>
 										<th class="centered">Sucursal</th>
 										<th class="centered">Nombre Empleado</th>
@@ -183,13 +183,14 @@
 										<th class="centered">Aseguradora</th>
 										<th class="centered">Estado de poliza</th>
 										<th class="centered">Observaciones</th>
+										<th class="centered">Editar</th>
 										<th class="centered">Eliminar</th>
 									</tr>
 								</thead>
 								<tbody>
 									{{#each getData}}
 										<tr>
-											<td><a href="/data/editrelacionvehiculos/{{id}}" class="btnEditar btn btn-primary"><i class="fa-solid fa-pen-to-square fa-xs" style="color: #ffffff;"></i></a></td>
+											<td>{{id}}</td>
 											<td>{{clvEmpleado}}</td>
 											<td>{{sucursal}}</td>
 											<td>{{nomEmpleado}}</td>
@@ -210,7 +211,8 @@
 											<td>{{totalFactura}}</td>
 											<td>{{aseguradora}}</td>
 											<td>{{estadoPoliza}}</td>
-											<td>{{observaciones}}</td>																						
+											<td>{{observaciones}}</td>											
+											<td><a href="/data/editrelacionvehiculos/{{id}}" class="btnEditar btn btn-primary"><i class="fa-solid fa-pen-to-square fa-xs" style="color: #ffffff;"></i></a></td>
 											<td><a href="/data/delete/{{id}}" class="btnBorrar btn btn-danger"><i class="fa-solid fa-delete-left fa-xs" style="color: #ffffff;"></i></a></td>
 										</tr>
 									{{/each}}

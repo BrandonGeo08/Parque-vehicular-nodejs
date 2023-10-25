@@ -83,3 +83,6 @@ CREATE TABLE `parque_vehicular`.`escobedo` (
   `numPoliza`, `numInciso`, `polizaVencimiento`, `numFactura`, `fechaFactura`, `subtotalFactura`, `ivaFactura`, `totalFactura`, `aseguradora`, `estadoPoliza`, `observaciones`) 
   VALUES ('238', 'ESCOBEDO', 'ERICK ', 'ALVARADO ', 'MIRANDA', '2024', 'GL 150', '3H1KA0541RD201851', '59SBS6', '883E8B008R', 'NO APLICA ', 
   '2024-07-29', 'A33970', '2023-07-25', '33,021.8', '5,283.49', '38,305.30', 'BBVA ', 'BIEN ', 'MOTO NUEVA 2024');
+
+  ALTER TABLE escobedo
+    ADD timeago TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP

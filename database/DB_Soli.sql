@@ -64,3 +64,6 @@ CREATE TABLE `parque_vehicular`.`solidaridad` (
   `numPlacas`, `numPoliza`, `numInciso`, `polizaVencimiento`, `numFactura`, `fechaFactura`, `subtotalFactura`, `ivaFactura`, `totalFactura`, `aseguradora`, `estadoPoliza`) 
   VALUES ('276', 'SOLIDARIDAD', 'JOSE JAIME DANIEL', 'OYERVIDES', 'GARCIA', '2023', 'CARGO 150', 'BLANCO', '3H1KA0545RD201853', '50SBS6', '883E8B008W', 'NO APLICA', 
   '2024-07-29', 'A33967', '2023-07-25', '33,021.81', '5,283.49', '38,305.30', 'BBVA', 'OK');
+
+    ALTER TABLE solidaridad
+    ADD timeago TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP

@@ -2,25 +2,28 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<title>Parque Vehicular</title>
 	<meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
 	<link rel="icon" href="/img/logo_borde.png" type="image/x-icon"/>
 
     {{!-- <!-- CSS --> --}}
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
+    {{!-- <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/> --}}
     <!-- Default theme -->
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css"/>
+    {{!-- <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css"/> --}}
 
 	{{!-- <!-- datatable css --> --}}
 	<link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
 	<link rel="stylesheet" href="/DataTables/Buttons-2.4.2/css/buttons.dataTables.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	
+
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 	{{!-- <!-- Fonts and icons --> --}}
 	<script src="/js/plugin/webfont/webfont.min.js"></script>
-
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 	
 	<script>
 		WebFont.load({
@@ -32,17 +35,20 @@
 		});
 	</script>
 
+
 	{{!-- <!-- CSS Files --> --}}
 	<link rel="stylesheet" href="/css/bootstrap.min.css">
 	<link rel="stylesheet" href="/css/matp.min.css">
 	<link rel="stylesheet" href="/css/form.css">
+
 	
 </head>
 <body>
 	
-	<div class="wrapper">
+	<div class="wrapper" >
 
 		{{>navigation}}
+
 		{{{ body }}}
 		
 	</div>
@@ -63,20 +69,22 @@
 	  
 	{{!-- <!--  JS --> --}}
 	<script src="/js/matp.min.js"></script>
+	{{!-- <script src="/js/main.js"></script> --}}
 	<script src="/js/form.js"></script>
 
 	{{!-- <!-- JavaScript --> --}}
-	<script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+	{{!-- <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script> --}}
 
 	{{!-- <!-- Script datatable --> --}}
 	<script src="//cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
 	<script src="/DataTables/Buttons-2.4.2/js/dataTables.buttons.min.js"></script>
 	<script src="/DataTables/JSZip-3.10.1/jszip.min.js"></script>
-	<script src="/DataTables/pdfmake-0.2.7/pdfmake.min.js"></script>
-	<script src="/DataTables/pdfmake-0.2.7/vfs_fonts.js"></script>
+	{{!-- <script src="/DataTables/pdfmake-0.2.7/pdfmake.min.js"></script>
+	<script src="/DataTables/pdfmake-0.2.7/vfs_fonts.js"></script> --}}
 	<script src="/DataTables/Buttons-2.4.2/js/buttons.html5.min.js"></script>
 	<script src="/DataTables/Buttons-2.4.2/js/buttons.print.min.js"></script>
 	<script src="https://kit.fontawesome.com/94888adaee.js" crossorigin="anonymous"></script>
 	<script src="/js/datatable.js"></script>
+	
 </body>
 </html>

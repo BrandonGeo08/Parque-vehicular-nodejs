@@ -31,3 +31,10 @@ Principal-src:  Carpeta principal que contiene todo el poryecto,
 
 
 Principal-src-routes: Carpeta que contiene los archivos con las rutas en las cuales navegara la app
+
+
+Principla-src-public: Carpeta a la cual el navegador puede acceder a todo el codigo que contenga public (archivos css,js,img etc)
+
+Principal-src-viwes: Carpeta que cuenta con los harchivos de handlebars y carpetas configuradas
+
+Principal-src-lib 

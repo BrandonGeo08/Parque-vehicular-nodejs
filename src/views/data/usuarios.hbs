@@ -1,0 +1,95 @@
+<!-- Main Panel -->
+<div class="main-panel">
+	<div class="content">
+		<div class="page-inner">
+			{{#if user}}
+			<div class="page-header">
+				<h4 class="page-title">Parque Vehicuar</h4>
+				<ul class="breadcrumbs">
+					<li class="nav-home">
+						<a href="#">
+							<i class="flaticon-home"></i>
+						</a>
+					</li>
+					<li class="separator">
+						<i class="flaticon-right-arrow"></i>
+					</li>
+					<li class="nav-item">
+						<a href="#">Tablas</a>
+					</li>
+				</ul>
+			</div>
+			<div class="col-md-12">
+				<div class="card">
+					<div class="card-header">
+						<div class="d-flex align-items-center">
+							<h4 class="card-title">Usuarios</h4>
+						</div>
+						<a href="/signup" class="btnEditar btn btn-primary" style="float: right; color :#ffffff"><i class="fa-solid fa-pen-to-square fa-xs" style="color: #ffffff;"></i>Agregar usuario</a>
+					</div>
+					{{#if success}}
+					<div class="container">
+						<div class="row">
+							<div class="col-md-4 mx-auto">
+								<div class="alert alert-success alert-dismissible fade show" role="alert">
+									{{success}}
+									<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+										<span aria-hidden="true">&times;</span>
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					{{/if}}
+					<div class="card-body">
+						<div class="table-responsive">
+							<table id="tablaUsers" class="table mt-2 table-bordered table-striped">
+								<thead style="background-color: #09D368; color: #fff;">
+									<tr class="text-center">
+										<th class="centered">Editar</th>
+										<th class="centered">Ultima edicion</th>
+										<th class="centered">Clave Empleado</th>
+										<th class="centered">Sucursal</th>
+										<th class="centered">Nombre</th>
+										<th class="centered">Rol de usuario</th>
+										<th class="centered">Contraseña</th>
+										<th class="centered">Borrar</th>
+								<tbody>
+									{{#each getUsers}}
+									<tr>
+										<td><a href="/data/editUser /{{id}}" class="btnEditar btn btn-primary"><i class="fa-solid fa-pen-to-square fa-xs" style="color: #ffffff;"></i></a></td>
+										<td>{{timeago timeago}}</td>
+										<td>{{clvEmployee}}</td>
+										<td>{{sucursal}}</td>
+										<td>{{fullname}}</td>
+										<td>{{isAdmin}}</td>
+										<td>{{password}}</td>
+										<td><a OnClick="if (! confirm('Quieres eliminar el usuario?')) return false;" href="/data/deleteUser/{{id}}" class="btn btn-danger"><i class="fa-solid fa-delete-left fa-xs" style="color: #ffffff;"></i></a></td>
+									</tr>
+									{{/each}}
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+			{{/if}}
+		</div>
+	</div>
+	<footer class="footer">
+		<div class="container-fluid">
+			<nav class="pull-left">
+				<ul class="nav">
+					<li class="nav-item">
+						<a class="nav-link" href="#">
+							Todos los derechos reservados
+						</a>
+					</li>
+				</ul>
+			</nav>
+			<div class="copyright ml-auto">
+				2023, Mi <a href="#">Abuelito</a> Te Presta
+			</div>
+		</div>
+	</footer>
+</div>

@@ -1,9 +1,11 @@
+/**Con passport puedo crear autentificaciones de sesiones */
 const passport = require('passport');
 const pool = require('../database');
 const LocalStrategy = require('passport-local').Strategy;
 const helpers = require('./helpers');
 
 
+/**  */
 passport.use('local.signin', new LocalStrategy({
     usernameField: 'clvEmployee',
     passwordField: 'password',
@@ -24,24 +26,34 @@ passport.use('local.signin', new LocalStrategy({
     }
 }));
 
+
+/**Utilizando passport para recibir los datos desde los campos del formulario 
+ * seteamos el ReqToCallback en true para recibir el objeto req dentro de la funcion que ejecuta LocalStrategy
+ * el callback recibe req, clvEmployee, password y con done puede continuar cualquier otro proceso
+ * 
+*/
 passport.use('local.signup', new LocalStrategy({
     usernameField: 'clvEmployee',
     passwordField: 'password',
     passReqToCallback: true
 }, async (req, clvEmployee, password, done)=>{
     const {fullname} = req.body
+    const {sucursal} = req.body
+    const {isAdmin} = req.body
     const newUser = {
         clvEmployee,
         password,
-        username,
-        fullname
+        isAdmin,
+        fullname,
+        sucursal
     }
     newUser.password= await helpers.encryptPassword(password);
-
     const result = await pool.query('INSERT INTO users SET ?', [newUser]);
     newUser.id = result.insertId;
     return done(null, newUser);
+    
 }));
+
 
 passport.serializeUser((user, done) => {
     done(null, user.id);

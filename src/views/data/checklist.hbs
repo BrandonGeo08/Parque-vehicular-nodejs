@@ -1,320 +1,787 @@
 <div class="main-panel">
     <div class="content">
         <div class="page-inner">
-            <div class="container">
-                <div class="row">
+
+            {{!-- Formato de Check list --}}
+            <div>
+                {{#each getChecklist}}
+                <button type="submit" id="btnCrearPdf" class="btn btn-sm btn-primary">Export</button>
+                <a href="/data/deletecheklist/{{id}}"
+                    OnClick="if (! confirm('¿Quieres realizar otro checklist?')) return false;"
+                    class="btn btn-danger btn-sm">Limpiar
+                </a>
+                <div class="container" style="background-color: rgb(255, 255, 255); padding-top: 1.5%;" id="pdf">
+                    {{!-- Imagen --}}
                     <div>
-                        <button type="submit" id="btnCrearPdf" class="btn btn-primary">Export</button>
-                        <a href="../data/checklist" class="btn btn-primary">Limpiar</a>
+                        <img src="/img/logo_borde.png" class="logo">
+                        <h2 class="title">CHECK LIST DE MOTOCICLETA</h2>
                     </div>
+                    {{!-- --}}
+
+                    {{!-- Datos --}}
+                    <div>
+                        <form>
+                            <div class="form-row">
+                                <div class="col">
+                                    <label><b>Fecha:</b></label>
+                                    <input disabled class="form-control form-control-sm" type="date"
+                                        value="{{fecha}}"><br>
+                                    <label><b>Nombre empleado:</b></label>
+                                    <input disabled class="form-control form-control-sm" type="text"
+                                        value="{{nombreEmpleado}}">
+                                </div>
+                                <div class="col">
+                                    <label><b>Hora:</b></label>
+                                    <input disabled class="form-control form-control-sm" type="time"
+                                        value="{{hora}}"><br>
+                                    <label><b>Sucursal:</b></label>
+                                    <input disabled class="form-control form-control-sm" type="text"
+                                        value="{{sucursal}}">
+                                </div>
+                            </div><br>
+                            <div class="form-row">
+                                 <div style="width: 90.2%; padding-left: 10px;">
+                                    <label><b>Quien realizo check list:</b> </label>
+                                    <input disabled class="form-control form-control-sm" type="text" value="{{realizocheck}}">
+                                 </div>
+                               
+                            </div>
+                        </form>
+                    </div>
+                    <hr>
+                    {{!-- fin datos --}}
+
+                    {{!-- Checklist --}}
+                    <div>
+                        <div class="form-row" style="padding-left: 30px;">
+                            <div class="col">
+                                <label><b>Luz Stop:</b></label> <br>
+                                <input type="checkbox" checked disabled /> {{luzStop}} <br>
+                                <label><b>Faro <br> Trasero:</b></label> <br>
+                                <input type="checkbox" checked disabled/> {{faroTrasero}} <br>
+                                <label><b>Placas</b></label> <br>
+                                <input type="checkbox" checked disabled/> {{placas}} <br>
+                                <label><b>Direccional <br> Trasera:</b></label> <br>
+                                <input type="checkbox" checked disabled/> {{direccionalTrasera}} <br>
+                                <label><b>Espokers:</b></label> <br>
+                                <input type="checkbox" checked disabled/> {{espokers}} <br>
+                                <label><b>Salpicadera <br> Trasera:</b></label> <br>
+                                <input type="checkbox" checked disabled/> {{salpicaderaTrasera}} <br>
+                            </div>
+                            <div class="col">
+                                <label><b>Manijas:</b></label> <br>
+                                <input type="checkbox" checked disabled/> {{manijas}} <br>
+                                <label><b>Amortiguador <br> Trasero:</b></label> <br>
+                                <input type="checkbox" checked disabled/> {{amortiguadorTrasero}} <br>
+                                <label><b>Asiento:</b></label> <br>
+                                <input type="checkbox" checked disabled/> {{asiento}} <br>
+                                <label><b>Llanta <br> Trasera:</b></label> <br>
+                                <input type="checkbox" checked disabled/> {{llantaTrasera}} <br>
+                                <label><b>Escape:</b></label> <br>
+                                <input type="checkbox" checked disabled/> {{escape}} <br>
+                                <label><b>Freno <br> Trasero:</b></label> <br>
+                                <input type="checkbox" checked disabled/> {{frenoTrasero}} <br>
+                            </div>
+                            <div class="col">
+                                <label><b>Espejos:</b></label> <br>
+                                <input type="checkbox" checked disabled/> {{espejos}} <br>
+                                <label><b>Faro <br> Delantero:</b></label> <br>
+                                <input type="checkbox" checked disabled/> {{faroDelantero}} <br>
+                                <label><b>Tanque Gas:</b></label> <br>
+                                <input type="checkbox" checked disabled/> {{tanqueGasolina}} <br>
+                                <label><b>Direccional <br> Delantera:</b></label> <br>
+                                <input type="checkbox" checked disabled/> {{direccionalDelantera}} <br>
+                                <label><b>Cadena:</b></label> <br>
+                                <input type="checkbox" checked disabled/> {{cadena}} <br>
+                                <label><b>Amortiguador <br> Delantero:</b></label> <br>
+                                <input type="checkbox" checked disabled/> {{amortiguadorDelantero}} <br>
+                            </div>
+                            <div class="col">
+                                <label><b>Odometro:</b></label> <br>
+                                <input type="checkbox" checked disabled/> {{odometro}} <br>
+                                <label><b>Freno <br> Delantero:</b></label> <br>
+                                <input type="checkbox" checked disabled/> {{frenoDelantero}} <br>
+                                <label><b>On Patada:</b></label> <br>
+                                <input type="checkbox" checked disabled/> {{onPatada}} <br>
+                                <label><b>Salpicadera <br> Delantera:</b></label> <br>
+                                <input type="checkbox" checked disabled/> {{salpicaderaDelantera}} <br>
+                                <label><b>Rines:</b></label> <br>
+                                <input type="checkbox" checked disabled/> {{rines}} <br>
+                                <label><b>Llanta <br> Delantera:</b></label> <br>
+                                <input type="checkbox" checked disabled/> {{llantaDelantera}} <br>
+                            </div>
+                        </div>
+                    </div>
+                    {{!--Fin Checklist --}}
+
+                    {{!-- tabla Documentos --}}
+                    <div class="table-responsive">
+                        <table class="table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Documentos</th>
+                                    <th>Tarjeta Circulacion</th>
+                                    <th>Licencia vijente</th>
+                                    <th>Seguro</th>
+                                    <th>Holograma</th>
+                                    <th>Otro</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th>Originales</th>
+                                    <td>{{tarjetaCirculacionOriginal}}</td>
+                                    <td>{{licenciaCirculacionOriginal}}</td>
+                                    <td>{{seguroOriginal}}</td>
+                                    <td>{{hologramaOriginal}}</td>
+                                    <td>{{otrosDoc}}</td>
+                                </tr>
+                                <tr>
+                                    <th>Copia</th>
+                                    <td>{{tarjetaCirculacionCopia}}</td>
+                                    <td>{{licenciaCirculacionCopia}}</td>
+                                    <td>{{seguroCopiar}}</td>
+                                    <td>{{hologramaCopia}}</td>
+                                    <td>{{otrosDoc}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    {{!-- Fin tabla documentos --}}
+
+                    {{!-- Tabla caracteristicas de vehiculo --}}
+                    <div class="table-responsive">
+                        <table class="table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Placas</th>
+                                    <th>Marca</th>
+                                    <th>Modelo</th>
+                                    <th>Version</th>
+                                    <th>Color</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>{{placasCaracteristicas}}</td>
+                                    <td>{{marcaCaracteristicas}}</td>
+                                    <td>{{modeloCaracteristicas}}</td>
+                                    <td>{{versionCaracteristicas}}</td>
+                                    <td>{{colorCaracteristicas}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    {{!-- Fin tabla Caracteristicas --}}
+
+                    {{!-- Tabla estado mecanico --}}
+                    <div class="table-responsive">
+                        <table class="table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Estado</th>
+                                    <th>Aceite</th>
+                                    <th>Bujias</th>
+                                    <th>Balatas del</th>
+                                    <th>Balatas tra</th>
+                                    <th>Filtro de aire</th>
+                                    <th>Llantas</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th>Bueno</th>
+                                    <td>{{estadoAceiteBueno}}</td>
+                                    <td>{{estadoBujiasBueno}}</td>
+                                    <td>{{estadoBalatasDelBueno}}</td>
+                                    <td>{{estadoBalatasTraBueno}}</td>
+                                    <td>{{estadoFiltroAireBueno}}</td>
+                                    <td>{{estadoLlantasBueno}}</td>
+                                </tr>
+                                <tr>
+                                    <th>Regular</th>
+                                    <td>{{estadoAceiteMalo}}</td>
+                                    <td>{{estadoBujiasMalo}}</td>
+                                    <td>{{estadoBalatasDelMalo}}</td>
+                                    <td>{{estadoBalatasTraMalo}}</td>
+                                    <td>{{estadoFiltroAireMalo}}</td>
+                                    <td>{{estadoLlantasMalo}}</td>
+                                </tr>
+                                <tr>
+                                    <th>¿Se realizo cambio?</th>
+                                    <td>{{estadoAceiteCambio}}</td>
+                                    <td>{{estadoBujiasCambio}}</td>
+                                    <td>{{estadoBalatasDelCambio}}</td>
+                                    <td>{{estadoBalatasTraCambio}}</td>
+                                    <td>{{estadoFiltroAireCambio}}</td>
+                                    <td>{{estadoLlantasCambio}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <hr>
+
+                    {{!-- Kilometraje, serv prox. observaciones --}}
+                    <div>
+                        <form>
+                            <div class="form-row">
+                                <div class="col">
+                                    <label><b>Kilometraje:</b></label>
+                                    <input disabled class="form-control form-control-sm" type="number"
+                                        value="{{kilometraje}}"><br>
+                                </div>
+                                <div class="col">
+                                    <label><b>ProximoServ:</b></label>
+                                    <input disabled class="form-control form-control-sm" type="date"
+                                        value="{{proximoServ}}">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div style="width: 100%; padding-left: 10px;">
+                                    <label><b>Observaciones:</b> </label>
+                                <textarea disabled rows="1"
+                                    class="form-control form-control-sm" >{{observaciones}}</textarea>
+                                </div>
+                                
+                            </div>
+                            <hr>
+                        </form>
+                    </div>
+                    {{!-- Fin km, serv, obs --}}
                 </div>
+                {{/each}}
             </div>
+            {{!-- Fin formato de Check list --}}
 
-            <div class="container" style="background-color: white;" id="pdf">
-                {{!-- Imagen --}}
-                <div>
-                    <img src="/img/logo_borde.png" class="logo">
-                    <h2 class="title">CHECK LIST DE MOTOCICLETA</h2>
-                </div>
-                {{!-- --}}
 
-                {{!-- Datos --}}
-                <div>
-                    <form>
-                        <div class="form-group">
-                            <label>Fecha: </label>
-                            <input class="form-control-sm" style="width : 14%;" type="date">
-                            <label>Hora: </label>
-                            <input class="form-control-sm" style="width : 14%;" type="time"><br>
-                            <label>Nombre empleado</label>
-                            <input class="form-control-sm" style="width : 50%;" type="text"><br>
-                            <label>Quien realizo check list</label>
-                            <input class="form-control-sm" style="width : 50%;" type="text"><br>
+
+
+            {{!-- Formulario del Check list --}}
+            <div class="card-body">
+                <div class="root">
+                    <form action="/data/checklistcopi" method="POST" class="form-register">
+
+                        {{!-- Progressbar --}}
+                        <div class="form-register__header">
+                            <ul class="progressbar">
+                                <li class="progressbar__option active"></li>
+                                <li class="progressbar__option"></li>
+                                <li class="progressbar__option"></li>
+                                <li class="progressbar__option"></li>
+                                <li class="progressbar__option"></li>
+                                <li class="progressbar__option"></li>
+                                <li class="progressbar__option"></li>
+                            </ul>
+                        </div>
+                        {{!-- Fin Progressbar --}}
+
+                        <div class="form-register__body">
+                            {{!-- Datos de quien y a quien se realiza Check list --}}
+                            <div class="step active" id="step-1">
+                                <div class="step__header">
+                                    <h2 class="atep__title" style="text-align: center;">Datos</h2>
+                                </div>
+                                <div class="step__body">
+                                    <div class="mb-3">
+                                        <label>Fechas</label>
+                                        <input type="date" class="form-control" name="fecha" id="fecha" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label>Nombre Empleado</label>
+                                        <input type="text" class="form-control" name="nombreEmpleado"
+                                            id="nombreEmpleado" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label>Hora</label>
+                                        <input type="time" class="form-control" name="hora" id="hora" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label>Sucurdal</label>
+                                        <select class="form-control" name="sucursal" id="sucursal" required>
+                                            <option selected>Sucursal...</option>
+                                            <option value="Acapulco">Acapulco</option>
+                                            <option value="Acapulco">Escobedo</option>
+                                            <option value="Acapulco">Santa Catarina</option>
+                                            <option value="Acapulco">Solidaridad</option>
+                                        </select>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label>¿Quien realizo el check list?</label>
+                                        <input type="text" class="form-control" name="realizocheck" id="realizocheck"
+                                            required>
+                                    </div>
+                                </div>
+                                <div class="step__footer">
+                                    <button type="button" class="step__button step__button--next btn btn-primary"
+                                        data-to_step="2" data-step="1">Siguiente</button>
+                                </div>
+                            </div>
+                            {{!-- Fin datos de quien y a quien se realiza Check list --}}
+
+                            {{!-- Checklist de partes parte uno --}}
+                            <div class="step" id="step-2">
+                                <div class="step__header">
+                                    <h2 class="atep__title" style="text-align: center;">Check List</h2>
+                                </div>
+                                <div class="step__body">
+                                    <div class="mb-3">
+                                        <label>Luz Stop</label>
+                                        <select class="form-control" name="luzStop" id="luzStop" required>
+                                            <option selected>Estado....</option>
+                                            <option value="Bueno">Bueno</option>
+                                            <option value="Regular">Regular</option>
+                                            <option value="Malo">Malo</option>
+                                        </select>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label>Faro Trasero</label>
+                                        <select class="form-control" name="faroTrasero" id="faroTrasero" required>
+                                            <option selected>Estado...</option>
+                                            <option value="Bueno">Bueno</option>
+                                            <option value="Regular">Regular</option>
+                                            <option value="Malo">Malo</option>
+                                        </select>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label>Direccional Trasera</label>
+                                        <select class="form-control" name="direccionalTrasera" id="direccionalTrasera"
+                                            required>
+                                            <option selected>Estado...</option>
+                                            <option value="Bueno">Bueno</option>
+                                            <option value="Regular">Regular</option>
+                                            <option value="Malo">Malo</option>
+                                        </select>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label>Placas</label>
+                                        <select class="form-control" name="placas" id="placas" required>
+                                            <option selected>Estado...</option>
+                                            <option value="Bueno">Bueno</option>
+                                            <option value="Regular">Regular</option>
+                                            <option value="Malo">Malo</option>
+                                        </select>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label>Salpicadera Trasera</label>
+                                        <select class="form-control" name="salpicaderaTrasera" id="salpicaderaTrasera"
+                                            required>
+                                            <option selected>Estado...</option>
+                                            <option value="Bueno">Bueno</option>
+                                            <option value="Regular">Regular</option>
+                                            <option value="Malo">Malo</option>
+                                        </select>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label>Amortiguador Trasera</label>
+                                        <select class="form-control" name="amortiguadorTrasero" id="amortiguadorTrasero"
+                                            required>
+                                            <option selected>Estado...</option>
+                                            <option value="Bueno">Bueno</option>
+                                            <option value="Regular">Regular</option>
+                                            <option value="Malo">Malo</option>
+                                        </select>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label>Llanta Trasera</label>
+                                        <select class="form-control" name="llantaTrasera" id="llantaTrasera" required>
+                                            <option selected>Estado...</option>
+                                            <option value="Bueno">Bueno</option>
+                                            <option value="Regular">Regular</option>
+                                            <option value="Malo">Malo</option>
+                                        </select>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label>Freno Trasero</label>
+                                        <select class="form-control" name="frenoTrasero" id="frenoTrasero" required>
+                                            <option selected>Estado...</option>
+                                            <option value="Bueno">Bueno</option>
+                                            <option value="Regular">Regular</option>
+                                            <option value="Malo">Malo</option>
+                                        </select>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label>Asiento</label>
+                                        <select class="form-control" name="asiento" id="asiento" required>
+                                            <option selected>Estado...</option>
+                                            <option value="Bueno">Bueno</option>
+                                            <option value="Regular">Regular</option>
+                                            <option value="Malo">Malo</option>
+                                        </select>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label>Tanque de Gasolina</label>
+                                        <select class="form-control" name="tanqueGasolina" id="tanqueGasolina" required>
+                                            <option selected>Estado...</option>
+                                            <option value="Bueno">Bueno</option>
+                                            <option value="Regular">Regular</option>
+                                            <option value="Malo">Malo</option>
+                                        </select>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label>Manijas</label>
+                                        <select class="form-control" name="manijas" id="manijas" required>
+                                            <option selected>Estado...</option>
+                                            <option value="Bueno">Bueno</option>
+                                            <option value="Regular">Regular</option>
+                                            <option value="Malo">Malo</option>
+                                        </select>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label>Espejos</label>
+                                        <select class="form-control" name="espejos" id="espejos" required>
+                                            <option selected>Estado...</option>
+                                            <option value="Bueno">Bueno</option>
+                                            <option value="Regular">Regular</option>
+                                            <option value="Malo">Malo</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="step__footer">
+                                    <button type="button" class="step__button step__button--back btn btn-danger"
+                                        data-to_step="1" data-step="2">Regresar</button>
+                                    <button type="button" class="step__button step__button--next btn btn-primary"
+                                        data-to_step="3" data-step="2">Siguiente</button>
+                                </div>
+                            </div>
+                            {{!-- Fin checklist de partes parte uno --}}
+                            
+                            {{!-- Checklist de partes parte dos --}}
+                            <div class="step" id="step-3">
+                                <div class="step__header">
+                                    <h2 class="step__title" style="text-align: center;">Cheklist</h2>
+                                </div>
+                                <div class="step__body">
+                                    <div class="mb-3">
+                                        <label>Espokers</label>
+                                        <select class="form-control" name="espokers" id="espokers" required>
+                                            <option selected>Estado...</option>
+                                            <option value="Bueno">Bueno</option>
+                                            <option value="Regular">Regular</option>
+                                            <option value="Malo">Malo</option>
+                                        </select>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label>Cadena</label>
+                                        <select class="form-control" name="cadena" id="cadena" required>
+                                            <option selected>Estado...</option>
+                                            <option value="Bueno">Bueno</option>
+                                            <option value="Regular">Regular</option>
+                                            <option value="Malo">Malo</option>
+                                        </select>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label>Escape</label>
+                                        <select class="form-control" name="escape" id="escape" required>
+                                            <option selected>Estado...</option>
+                                            <option value="Bueno">Bueno</option>
+                                            <option value="Regular">Regular</option>
+                                            <option value="Malo">Malo</option>
+                                        </select>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label>On patada</label>
+                                        <select class="form-control" name="onPatada" id="onPatada" required>
+                                            <option selected>Estado...</option>
+                                            <option value="Bueno">Bueno</option>
+                                            <option value="Regular">Regular</option>
+                                            <option value="Malo">Malo</option>
+                                        </select>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label>Odometro y velocimetro</label>
+                                        <select class="form-control" name="odometro" id="odometro" required>
+                                            <option selected>Estado...</option>
+                                            <option value="Bueno">Bueno</option>
+                                            <option value="Regular">Regular</option>
+                                            <option value="Malo">Malo</option>
+                                        </select>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label>Faro Delantero</label>
+                                        <select class="form-control" name="faroDelantero" id="faroDelantero" required>
+                                            <option selected>Estado...</option>
+                                            <option value="Bueno">Bueno</option>
+                                            <option value="Regular">Regular</option>
+                                            <option value="Malo">Malo</option>
+                                        </select>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label>Direccional Delantera</label>
+                                        <select class="form-control" name="direccionalDelantera"
+                                            id="direccionalDelantera" required>
+                                            <option selected>Estado...</option>
+                                            <option value="Bueno">Bueno</option>
+                                            <option value="Regular">Regular</option>
+                                            <option value="Malo">Malo</option>
+                                        </select>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label>Amortiguador Delantero</label>
+                                        <select class="form-control" name="amortiguadorDelantero"
+                                            id="amortiguadorDelantero" required>
+                                            <option selected>Estado...</option>
+                                            <option value="Bueno">Bueno</option>
+                                            <option value="Regular">Regular</option>
+                                            <option value="Malo">Malo</option>
+                                        </select>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label>Salpicadera Delantera</label>
+                                        <select class="form-control" name="salpicaderaDelantera"
+                                            id="salpicaderaDelantera" required>
+                                            <option selected>Estado...</option>
+                                            <option value="Bueno">Bueno</option>
+                                            <option value="Regular">Regular</option>
+                                            <option value="Malo">Malo</option>
+                                        </select>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label>Freno Delantero</label>
+                                        <select class="form-control" name="frenoDelantero" id="frenoDelantero" required>
+                                            <option selected>Estado...</option>
+                                            <option value="Bueno">Bueno</option>
+                                            <option value="Regular">Regular</option>
+                                            <option value="Malo">Malo</option>
+                                        </select>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label>Llanta Delantera</label>
+                                        <select class="form-control" name="llantaDelantera" id="llantaDelantera"
+                                            required>
+                                            <option selected>Estado...</option>
+                                            <option value="Bueno">Bueno</option>
+                                            <option value="Regular">Regular</option>
+                                            <option value="Malo">Malo</option>
+                                        </select>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label>Rines</label>
+                                        <select class="form-control" name="rines" id="rines" required>
+                                            <option selected>Estado...</option>
+                                            <option value="Bueno">Bueno</option>
+                                            <option value="Regular">Regular</option>
+                                            <option value="Malo">Malo</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="step__footer">
+                                    <button type="button" class="step__button step__button--back btn btn-danger"
+                                        data-to_step="2" data-step="3">Regresar</button>
+                                    <button type="button" class="step__button step__button--next btn btn-primary"
+                                        data-to_step="4" data-step="3">Siguiente</button>
+                                </div>
+                            </div>
+                            {{!-- Fin checklist de partes parte dos --}}
+
+                            {{!-- Checklist tabla documentos --}}
+                            <div class="step" id="step-4">
+                                <div class="step__header">
+                                    <h2 class="step__title" style="text-align: center;">Documentacion
+                                    </h2>
+                                </div>
+                                <div class="step__body">
+                                    <div class="mb-3">
+                                        <label>Tarjeta de Circulacion</label><br>
+                                        <input type="checkbox" value="✓" name="tarjetaCirculacionOriginal"
+                                            id="tarjetaCirculacionOriginal"> <label>Original</label>
+                                        <input type="checkbox" value="✓" name="tarjetaCirculacionCopia"
+                                            id="tarjetaCirculacionCopia"> <label>Copia</label>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label>Licencia Vijente</label><br>
+                                        <input type="checkbox" value="✓" name="licenciaCirculacionOriginal"
+                                            id="licenciaCirculacionOriginal"> <label>Original</label>
+                                        <input type="checkbox" value="✓" name="licenciaCirculacionCopia"
+                                            id="licenciaCirculacionCopia"> <label>Copia</label>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label>Seguro</label><br>
+                                        <input type="checkbox" value="✓" name="seguroOriginal" id="seguroOriginal">
+                                        <label>Original</label>
+                                        <input type="checkbox" value="✓" name="seguroCopiar" id="seguroCopiar">
+                                        <label>Copia</label>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label>Holograma</label><br>
+                                        <input type="checkbox" value="✓" name="hologramaOriginal"
+                                            id="hologramaOriginal">
+                                        <label>Original</label>
+                                        <input type="checkbox" value="✓" name="hologramaCopia" id="hologramaCopia">
+                                        <label>Copia</label>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label>Otros Documentos</label><br>
+                                        <input type="text" class="form-control" name="otrosDoc" id="otrosDoc">
+                                    </div>
+                                </div>
+                                <div class="step__footer">
+                                    <button type="button" class="step__button step__button--back btn btn-danger"
+                                        data-to_step="3" data-step="4">Regresar</button>
+                                    <button type="button" class="step__button step__button--next btn btn-primary"
+                                        data-to_step="5" data-step="4">Siguiente</button>
+                                </div>
+                            </div>
+                            {{!-- Fin checklist tabla documentos --}}
+                            
+                            {{!-- Checklist tabla caracteristicas del vehiculo --}}
+                            <div class="step" id="step-5">
+                                <div class="step__header">
+                                    <h2 class="step__title" style="text-align: center;">Caracteristicas del vehiculo
+                                    </h2>
+                                </div>
+                                <div class="step__body">
+                                    <div class="mb-3">
+                                        <label>Placa</label>
+                                        <input type="text" class="form-control" name="placasCaracteristicas" id="placasCaracteristicas"
+                                            required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label>Marca</label>
+                                        <input type="text" class="form-control" name="marcaCaracteristicas" id="marcaCaracteristicas"
+                                            required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label>Modelo</label>
+                                        <input type="text" class="form-control" name="modeloCaracteristicas" id="modeloCaracteristicas"
+                                            required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label>Varsion</label>
+                                        <input type="text" class="form-control" name="versionCaracteristicas" id="versionCaracteristicas"
+                                            required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label>Color</label>
+                                        <input type="text" class="form-control" name="colorCaracteristicas" id="colorCaracteristicas"
+                                            required>
+                                    </div>
+                                </div>
+                                <div class="step__footer">
+                                    <button type="button" class="step__button step__button--back btn btn-danger"
+                                        data-to_step="4" data-step="5">Regresar</button>
+                                    <button type="button" class="step__button step__button--next btn btn-primary"
+                                        data-to_step="6" data-step="5">Siguiente</button>
+                                </div>
+                            </div>
+                            {{!-- Fin checklist tabla caracteristicas del vehiculo --}}
+
+                            {{!-- Checklist tabla estado mecanico --}}
+                            <div class="step" id="step-6">
+                                <div class="step__header">
+                                    <h2 class="step__title" style="text-align: center;">Estado mecanico</h2>
+                                </div>
+                                <div class="step__body">
+                                    <div class="mb-3">
+                                        <label>Aceite</label><br>
+                                        <input type="checkbox" value="✓" name="estadoAceiteBueno" id="estadoAceiteBueno">
+                                        <label>Bueno</label>
+                                        <input type="checkbox" value="✓" name="estadoAceiteMalo" id="estadoAceiteMalo">
+                                        <label>Regular</label>
+                                        <input type="checkbox" value="✓" name="estadoAceiteCambio" id="estadoAceiteCambio"><label>Se realizo cambio</label>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label>bujias</label><br>
+                                        <input type="checkbox" value="✓" name="estadoBujiasBueno" id="estadoBujiasBueno">
+                                        <label>Bueno</label>
+                                        <input type="checkbox" value="✓" name="estadoBujiasMalo" id="estadoBujiasMalo">
+                                        <label>Regular</label>
+                                        <input type="checkbox" value="✓" name="estadoBujiasCambio" id="estadoBujiasCambio"><label>Se realizo cambio</label>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label>Balatas Delanteras</label><br>
+                                        <input type="checkbox" value="✓" name="estadoBalatasDelBueno" id="estadoBalatasDelBueno">
+                                        <label>Bueno</label>
+                                        <input type="checkbox" value="✓" name="estadoBalatasDelMalo" id="estadoBalatasDelMalo">
+                                        <label>Regular</label>
+                                        <input type="checkbox" value="✓" name="estadoBalatasDelCambio"
+                                            id="estadoBalatasDelCambio"> <label>Se realizo cambio</label>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label>Balatas Traseras</label><br>
+                                         <input type="checkbox" value="✓" name="estadoBalatasTraBueno" id="estadoBalatasTraBueno">
+                                        <label>Bueno</label>
+                                        <input type="checkbox" value="✓" name="estadoBalatasTraMalo" id="estadoBalatasTraMalo">
+                                        <label>Regular</label>
+                                        <input type="checkbox" value="✓" name="estadoBalatasTraCambio"
+                                            id="balatasTraserasCambio">
+                                        <label>Se realizo cambio</label>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label>Filtro de aire</label><br>
+                                        <input type="checkbox" value="✓" name="estadoFiltroAireBueno" id="estadoFiltroAireBueno">
+                                        <label>Bueno</label>
+                                        <input type="checkbox" value="✓" name="estadoFiltroAireMalo" id="estadoFiltroAireMalo">
+                                        <label>Regular</label>
+                                        <input type="checkbox" value="✓" name="estadoFiltroAireCambio" id="estadoFiltroAireCambio">
+                                        <label>Se
+                                            realizo cambio</label>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label>llantas</label><br>
+                                         <input type="checkbox" value="✓" name="estadoLlantasBueno" id="estadoLlantasBueno">
+                                        <label>Bueno</label>
+                                        <input type="checkbox" value="✓" name="estadoLlantasMalo" id="estadoLlantasMalo">
+                                        <label>Regular</label>
+                                        <input type="checkbox" value="✓" name="estadoLlantasCambio" id="estadoLlantasCambio">
+                                        <label>Se realizo
+                                            cambio</label>
+                                    </div>
+                                    <div class="step__footer">
+                                        <button type="button" class="step__button step__button--back btn btn-danger"
+                                            data-to_step="5" data-step="6">Regresar</button>
+                                        <button type="button" class="step__button step__button--next btn btn-primary"
+                                            data-to_step="7" data-step="6">Siguiente</button>
+                                    </div>
+                                </div>
+                            </div>
+                            {{!-- Fin checklist tabla estado mecanico --}}
+
+                            {{!-- Cheklist observaciones --}}
+                            <div class="step" id="step-7">
+                                <div class="step__header">
+                                    <h2 class="step__title" style="text-align: center;">Km, proximo servicios,
+                                        observaciones</h2>
+                                </div>
+                                <div class="step__body">                                    
+                                    <div class="mb-3">
+                                        <label>Kilometraje</label>
+                                        <input type="number" class="form-control" name="kilometraje" id="kilometraje"
+                                            required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label>Proximo Servicio</label>
+                                        <input type="date" class="form-control" name="proximoServ" id="proximoServ"
+                                            required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label>Observaciones</label>
+                                        <textarea rows="1" class="form-control" name="observaciones"
+                                            id="observaciones"></textarea>
+                                    </div>
+                                </div>
+                                <div class="step__footer">
+                                    <button type="button" class="step__button step__button--back btn btn-danger"
+                                        data-to_step="6" data-step="7">Regresar</button>
+                                    <button type="submit" class="step__button btn btn-success">Guardar</button>
+                                </div>
+                            </div>
+                            {{!-- Fin checklist observaciones --}}
                         </div>
                     </form>
                 </div>
-                <hr>
-                {{!-- fin datos --}}
-
-                {{!-- Check checkbox --}}
-                <div class="table-responsive-sm">
-                    <table class="table table-sm table-bordered">
-                        <thead class="table-active">
-                            <tr>
-                                <th scope="col">Componente</th>
-                                <th scope="col">Estado Bueno</th>
-                                <th scope="col">Estado Regular</th>
-                                <th scope="col">Estado Malo</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <th scope="row" class="table-active">Luz Stop</th>
-                                <td class="check_td_input"><input class="checkbox" type="checkbox"></td>
-                                <td class="check_td_input"><input class="checkbox" type="checkbox"></td>
-                                <td class="check_td_input"><input class="checkbox" type="checkbox"></td>
-                            </tr>
-                            <tr>
-                                <th scope="row" class="table-active">Placas</th>
-                                <td class="check_td_input"><input class="checkbox" type="checkbox"></td>
-                                <td class="check_td_input"><input class="checkbox" type="checkbox"></td>
-                                <td class="check_td_input"><input class="checkbox" type="checkbox"></td>
-                            </tr>
-                            <tr>
-                                <th scope="row" class="table-active">Amortiguadores</th>
-                                <td class="check_td_input"><input class="checkbox" type="checkbox"></td>
-                                <td class="check_td_input"><input class="checkbox" type="checkbox"></td>
-                                <td class="check_td_input"><input class="checkbox" type="checkbox"></td>
-                            </tr>
-                            <tr>
-                                <th scope="row" class="table-active">Escape</th>
-                                <td class="check_td_input"><input class="checkbox" type="checkbox"></td>
-                                <td class="check_td_input"><input class="checkbox" type="checkbox"></td>
-                                <td class="check_td_input"><input class="checkbox" type="checkbox"></td>
-                            </tr>
-                            <tr>
-                                <th scope="row" class="table-active">Cadena</th>
-                                <td class="check_td_input"><input class="checkbox" type="checkbox"></td>
-                                <td class="check_td_input"><input class="checkbox" type="checkbox"></td>
-                                <td class="check_td_input"><input class="checkbox" type="checkbox"></td>
-                            </tr>
-                            <tr>
-                                <th scope="row" class="table-active">Encendido Patada</th>
-                                <td class="check_td_input"><input class="checkbox" type="checkbox"></td>
-                                <td class="check_td_input"><input class="checkbox" type="checkbox"></td>
-                                <td class="check_td_input"><input class="checkbox" type="checkbox"></td>
-                            </tr>
-                            <tr>
-                                <th scope="row" class="table-active">Asiento</th>
-                                <td class="check_td_input"><input class="checkbox" type="checkbox"></td>
-                                <td class="check_td_input"><input class="checkbox" type="checkbox"></td>
-                                <td class="check_td_input"><input class="checkbox" type="checkbox"></td>
-                            </tr>
-                            <tr>
-                                <th scope="row" class="table-active">Tanque Gasolina</th>
-                                <td class="check_td_input"><input class="checkbox" type="checkbox"></td>
-                                <td class="check_td_input"><input class="checkbox" type="checkbox"></td>
-                                <td class="check_td_input"><input class="checkbox" type="checkbox"></td>
-                            </tr>
-                            <tr>
-                                <th scope="row" class="table-active">Odometro/velocimetro</th>
-                                <td class="check_td_input"><input class="checkbox" type="checkbox"></td>
-                                <td class="check_td_input"><input class="checkbox" type="checkbox"></td>
-                                <td class="check_td_input"><input class="checkbox" type="checkbox"></td>
-                            </tr>
-                            <tr>
-                                <th scope="row" class="table-active">Faros D/T</th>
-                                <td class="check_td_input">
-                                    <label> Delantera <br> <input class="checkbox" type="checkbox"> </label>
-                                    <label> Trasera <br> <input class="checkbox" type="checkbox"> </label>
-                                </td>
-                                <td class="check_td_input">
-                                    <label> Delantera <br> <input class="checkbox" type="checkbox"> </label>
-                                    <label> Trasera <br> <input class="checkbox" type="checkbox"> </label>
-                                </td>
-                                <td class="check_td_input">
-                                    <label> Delantera <br> <input class="checkbox" type="checkbox"> </label>
-                                    <label> Trasera <br> <input class="checkbox" type="checkbox"> </label>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th scope="row" class="table-active">Direccionales D/T</th>
-                                <td class="check_td_input">
-                                    <label> Delantera <br> <input class="checkbox" type="checkbox"> </label>
-                                    <label> Trasera <br> <input class="checkbox" type="checkbox"> </label>
-                                </td>
-                                <td class="check_td_input">
-                                    <label> Delantera <br> <input class="checkbox" type="checkbox"> </label>
-                                    <label> Trasera <br> <input class="checkbox" type="checkbox"> </label>
-                                </td>
-                                <td class="check_td_input">
-                                    <label> Delantera <br> <input class="checkbox" type="checkbox"> </label>
-                                    <label> Trasera <br> <input class="checkbox" type="checkbox"> </label>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th scope="row" class="table-active">Salpicaduras D/T</th>
-                                <td class="check_td_input">
-                                    <label> Delantera <br> <input class="checkbox" type="checkbox"> </label>
-                                    <label> Trasera <br> <input class="checkbox" type="checkbox"> </label>
-                                </td>
-                                <td class="check_td_input">
-                                    <label> Delantera <br> <input class="checkbox" type="checkbox"> </label>
-                                    <label> Trasera <br> <input class="checkbox" type="checkbox"> </label>
-                                </td>
-                                <td class="check_td_input">
-                                    <label> Delantera <br> <input class="checkbox" type="checkbox"> </label>
-                                    <label> Trasera <br> <input class="checkbox" type="checkbox"> </label>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <th scope="row" class="table-active">Llantas/Rines D/T</th>
-                                <td class="check_td_input">
-                                    <label> Delantera <br> <input class="checkbox" type="checkbox"> </label>
-                                    <label> Trasera <br> <input class="checkbox" type="checkbox"> </label>
-                                </td>
-                                <td class="check_td_input">
-                                    <label> Delantera <br> <input class="checkbox" type="checkbox"> </label>
-                                    <label> Trasera <br> <input class="checkbox" type="checkbox"> </label>
-                                </td>
-                                <td class="check_td_input">
-                                    <label> Delantera <br> <input class="checkbox" type="checkbox"> </label>
-                                    <label> Trasera <br> <input class="checkbox" type="checkbox"> </label>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th scope="row" class="table-active">Frenos D/T</th>
-                                <td class="check_td_input">
-                                    <label> Delantera <br> <input class="checkbox" type="checkbox"> </label>
-                                    <label> Trasera <br> <input class="checkbox" type="checkbox"> </label>
-                                </td>
-                                <td class="check_td_input">
-                                    <label> Delantera <br> <input class="checkbox" type="checkbox"> </label>
-                                    <label> Trasera <br> <input class="checkbox" type="checkbox"> </label>
-                                </td>
-                                <td class="check_td_input">
-                                    <label> Delantera <br> <input class="checkbox" type="checkbox"> </label>
-                                    <label> Trasera <br> <input class="checkbox" type="checkbox"> </label>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div><br>
-                <hr>
-                {{!-- Fin checkbox --}}
-
-                {{!-- tabla Documentos --}}
-                <div class="table-responsive-sm">
-                    <table class="table .table-sm table-bordered">
-                        <thead class="table-active">
-                            <tr>
-                                <th scope="col">Documentos</th>
-                                <th scope="col">Tarjeta Circulacion</th>
-                                <th scope="col">Licencia vijente</th>
-                                <th scope="col">Seguro</th>
-                                <th scope="col">Holograma</th>
-                                <th scope="col">Otro</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <th scope="row" class="table-active">Originales</th>
-                                <td class="check_td_input"><input class="checkbox" type="checkbox"></td>
-                                <td class="check_td_input"><input class="checkbox" type="checkbox"></td>
-                                <td class="check_td_input"><input class="checkbox" type="checkbox"></td>
-                                <td class="check_td_input"><input class="checkbox" type="checkbox"></td>
-                                <td class="check_td_input"><input type="text" class="input_tabla"></td>
-                            </tr>
-                            <tr>
-                                <th scope="row" class="table-active">Copia</th>
-                                <td class="check_td_input"><input class="checkbox" type="checkbox"></td>
-                                <td class="check_td_input"><input class="checkbox" type="checkbox"></td>
-                                <td class="check_td_input"><input class="checkbox" type="checkbox"></td>
-                                <td class="check_td_input"><input class="checkbox" type="checkbox"></td>
-                                <td><input type="text" class="input_tabla"></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <hr>
-                {{!-- Fin tavla documentos --}}
-
-                {{!-- Tabla caracteristicas de vehiculo --}}
-                <div class="table-responsive-sm">
-                    <table class="table .table-sm table-bordered">
-                        <thead class="table-active">
-                            <tr>
-                                <th scope="col">Placas</th>
-                                <th scope="col">Marca</th>
-                                <th scope="col">Modelo</th>
-                                <th scope="col">Version</th>
-                                <th scope="col">Color</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><input type="text" class="input_tabla"></td>
-                                <td><input type="text" class="input_tabla"></td>
-                                <td><input type="text" class="input_tabla"></td>
-                                <td><input type="text" class="input_tabla"></td>
-                                <td><input type="text" class="input_tabla"></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <hr>
-                {{!-- Fin tabla Caracteristicas --}}
-
-                {{!-- Tabla estado mecanico --}}
-                <div class="table-responsive-sm">
-                    <table class="table .table-sm table-bordered">
-                        <thead class="table-active">
-                            <tr>
-                                <th scope="col">Estado</th>
-                                <th scope="col">Aceite</th>
-                                <th scope="col">Bujias</th>
-                                <th scope="col">Balatas del</th>
-                                <th scope="col">Balatas tra</th>
-                                <th scope="col">Filtro de aire</th>
-                                <th scope="col">Llantas</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <th scope="row">Bueno</th>
-                                <td class="check_td_input"><input class="checkbox" type="checkbox"></td>
-                                <td class="check_td_input"><input class="checkbox" type="checkbox"></td>
-                                <td class="check_td_input"><input class="checkbox" type="checkbox"></td>
-                                <td class="check_td_input"><input class="checkbox" type="checkbox"></td>
-                                <td class="check_td_input"><input class="checkbox" type="checkbox"></td>
-                                <td class="check_td_input"><input class="checkbox" type="checkbox"></td>
-                            </tr>
-                            <tr>
-                                <th scope="row">Regular</th>
-                                <td class="check_td_input"><input class="checkbox" type="checkbox"></td>
-                                <td class="check_td_input"><input class="checkbox" type="checkbox"></td>
-                                <td class="check_td_input"><input class="checkbox" type="checkbox"></td>
-                                <td class="check_td_input"><input class="checkbox" type="checkbox"></td>
-                                <td class="check_td_input"><input class="checkbox" type="checkbox"></td>
-                                <td class="check_td_input"><input class="checkbox" type="checkbox"></td>
-                            </tr>
-                            <tr>
-                                <th scope="row">Se realizo cambio</th>
-                                <td class="check_td_input"><input class="checkbox" type="checkbox"></td>
-                                <td class="check_td_input"><input class="checkbox" type="checkbox"></td>
-                                <td class="check_td_input"><input class="checkbox" type="checkbox"></td>
-                                <td class="check_td_input"><input class="checkbox" type="checkbox"></td>
-                                <td class="check_td_input"><input class="checkbox" type="checkbox"></td>
-                                <td class="check_td_input"><input class="checkbox" type="checkbox"></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <hr>
-                {{!-- Fin tabla estado mecanico --}}
-
-                {{!-- Kilometraje, serv prox. observaciones --}}
-                <div>
-                    <form>
-                        <div class="form-group">
-                            <label>Kilomentraje: </label>
-                            <input class="form-control-sm" style="width : 14%;" type="number">
-                            <label>Proximo servicio: </label>
-                            <input class="form-control-sm" style="width : 14%;" type="date"><br>
-                            <label>Observaciones: </label>
-                            <textarea rows="1"></textarea>
-                        </div>
-                    </form>
-                </div>
-                {{!-- Fin km, serv, obs --}}
             </div>
+            {{!-- Fin formulario de Check list --}}
         </div>
     </div>
 </div>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"
     integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    crossorigin="anonymous" referrerpolicy="no-referrer">
+    </script>
+
 <script>
     document.addEventListener("DOMContentLoaded", () => {
         // Escuchamos el click del botón
@@ -323,20 +790,20 @@
             const $elementoParaConvertir = document.getElementById("pdf"); // <-- Aquí puedes elegir cualquier elemento del DOM
             html2pdf()
                 .set({
-                    margin: 1,
-                    filename: 'Check list motocicleta.pdf',
+                    margin: 0,
+                    filename: 'Check list motocicleta' {{placasCaracteristicas}},
                     image: {
                         type: 'jpeg',
                         quality: 0.98
                     },
                     html2canvas: {
-                        scale: 5,
+                        scale: 6,
                         letterRendering: true,
                     },
                     jsPDF: {
                         orientation: 'p',
                         unit: 'mm',
-                        format: 'a4',
+                        format: 'A4',
                         putOnlyUsedFonts: true,
                         floatPrecision: 16 // or "smart", default is 16
                     }
@@ -347,6 +814,7 @@
         });
     });
 </script>
+
 <style>
     .title {
         text-align: center;
@@ -354,35 +822,37 @@
         opacity: 0.5;
     }
 
-    input,
-    textarea {
-        border-bottom: 1px solid !important;
-        border: none;
-        width: 100%;
-    }
-
-    .input_tabla {
-        width: 100%;
-    }
-
-    .check_td_input {
-        text-align: center;
-    }
-
-    .checkbox {
-        width: 15px;
-        height: 15px;
+    input {
+        margin: 0.3rem;
     }
 
     img.logo {
         float: right;
         border-radius: 50%;
         padding: 5px;
-        width: 85px;
+        width: 100px;
         opacity: 0.5;
     }
 
     table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 10px 0;
+        font-size: 1em;
+        font-family: sans-serif;
         text-align: center;
+    }
+
+    thead tr {
+        background-color: rgb(80, 80, 80);
+        color: #ffffff;
+    }
+
+    tbody tr {
+        border-bottom: 1px solid #dddddd;
+    }
+
+    tbody tr:nth-of-type(even) {
+        background-color: #f3f3f3;
     }
 </style>
